@@ -16,6 +16,7 @@ public class Grid {
         for(int i = 0; i<lines;i++){
             for(int j = 0 ; j< columns; j++){
                 buttons[i][j] = new Btn(btnCounter);
+                buttons[i][j].setOnAction(new ButtonHandler(buttons[i][j]));
                 btnCounter++;
             }
         }
