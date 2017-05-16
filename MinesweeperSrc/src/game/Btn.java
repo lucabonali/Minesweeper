@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
  */
 public class Btn extends Button {
     private int idButton,nearBombs;
+
     private boolean clicked,flaged,bomb;
 
 
