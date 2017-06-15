@@ -35,12 +35,14 @@ public class GameGui {
     }
 
 
-
+    /**
+     * metodo che crea il Pane principale della partita, e viene richiamato nel metodo CreateGameGui, per poi passarlo nella
+     * funzione Lambda Platform.runLater() -> e farlo diventare la nuova Scene
+     * @return
+     */
     public Parent createContent(){
         addBackground();
-        addTitle();
         addButtons();
-
         return root;
     }
 
@@ -57,9 +59,6 @@ public class GameGui {
                 root.getChildren().add(buttons[i][j]);
             }
         }
-    }
-    private void addTitle() {
-
     }
     private void addBackground() {
         ImageView bgImage = new ImageView(new Image(getClass().getResource("../resources/sfondoGame.png").toExternalForm()));

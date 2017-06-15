@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fe93e37-fc86-469a-b3f4-7408781ba02d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/resources/gameBackGround.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/resources/sfondoGame.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/gameGui/GameGui.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/game/Game.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/controllers/LauncherController.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/controllers/LauncherController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/fxml/launcher.fxml" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/fxml/launcher.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/gameGui/GameGui.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/GUI/gameGui/GameGui.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,10 +29,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ButtonHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ButtonHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/game/ButtonHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="95">
               <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
@@ -85,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameGui.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameGui.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/GUI/gameGui/GameGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="55" column="50" lean-forward="false" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+            <state relative-caret-position="200">
+              <caret line="39" column="78" lean-forward="false" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -862,7 +857,7 @@
       <workItem from="1497089935511" duration="5763000" />
       <workItem from="1497273334062" duration="25000" />
       <workItem from="1497528022759" duration="1193000" />
-      <workItem from="1497545788454" duration="14184000" />
+      <workItem from="1497545788454" duration="14298000" />
     </task>
     <task id="LOCAL-00001" summary="Primo aggiornamento">
       <created>1494681186665</created>
@@ -899,7 +894,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497562409761</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="3^ aggiornamento : aggiunta bottoni wow al primo colpo">
+      <created>1497565333441</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1497565333441</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -935,7 +937,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36697000" />
+    <option name="totallyTimeSpent" value="36811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -983,7 +985,8 @@
     <MESSAGE value="Primo aggiornamento" />
     <MESSAGE value="Primo aggiornamento2" />
     <MESSAGE value="2^ aggiornamento : inizio Gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="2^ aggiornamento : inizio Gui" />
+    <MESSAGE value="3^ aggiornamento : aggiunta bottoni wow al primo colpo" />
+    <option name="LAST_COMMIT_MESSAGE" value="3^ aggiornamento : aggiunta bottoni wow al primo colpo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1438,6 +1441,14 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/game/ButtonHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/GUI/controllers/LauncherController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1456,19 +1467,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/GUI/gameGui/GameGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="55" column="50" lean-forward="false" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        <state relative-caret-position="200">
+          <caret line="39" column="78" lean-forward="false" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/game/ButtonHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
