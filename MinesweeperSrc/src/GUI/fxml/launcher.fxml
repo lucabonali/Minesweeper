@@ -25,7 +25,7 @@
                   <Font name="AR JULIAN" size="31.0" />
                </font>
             </Label>
-            <Button id="btnPlayOffline" layoutX="95.0" layoutY="182.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
+            <Button id="btnPlayOffline" fx:id="startButton" layoutX="95.0" layoutY="182.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
             <ToolBar id="launcherToolbar" layoutY="1.0" prefHeight="35.0" prefWidth="500.0" stylesheets="@../styleSheet/graphicStyle.css">
               <items>
                   <Pane prefHeight="25.0" prefWidth="457.0" />

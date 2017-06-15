@@ -3,6 +3,7 @@ package GUI.controllers;
 import GUI.MinesweeperLauncher;
 import GUI.animations.FadeAnimation;
 import GUI.animations.ScaleAnimation;
+import GUI.gameGui.GameGui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,6 +24,8 @@ import java.util.ResourceBundle;
  */
 public class LauncherController implements Initializable {
     @FXML
+    private Button startButton;
+    @FXML
     private Label titleLabel;
     @FXML
     private Button buttonExit;
@@ -27,6 +33,7 @@ public class LauncherController implements Initializable {
 
     private FadeAnimation fadeIn,fadeOut;
     private ScaleAnimation big,small;
+    private int lines, columns;
 
     /**
      * metodo che chiude la finestra quando viene premuto il pulsante di chiusura
@@ -41,12 +48,26 @@ public class LauncherController implements Initializable {
     }
 
     /**
+     * metodo chiamato quando l' utente preme il pulsante di inizio della partita
+     * @param actionEvent
+     */
+    public void startGame(ActionEvent actionEvent) {
+        try {
+            GameGui.createGameGui(lines,columns);
+        } catch (InterruptedException | UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * metodo che parte all' inizio, quando l' oggetto controller viene creato, e si occupa di settare i valori iniziali
      * @param location
      * @param resources
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        lines = 9;
+        columns = 9;
         initializeFadeAnimation();
         initializeScaleAnimation();
     }
@@ -59,6 +80,7 @@ public class LauncherController implements Initializable {
         big.playAnimation();
     }
 
+
     private void initializeFadeAnimation() {
         fadeIn = new FadeAnimation(titleLabel,0.5,1, Duration.millis(1000));
         fadeOut = new FadeAnimation(titleLabel,1,0.5, Duration.millis(1000));
@@ -66,6 +88,4 @@ public class LauncherController implements Initializable {
         fadeOut.getFadeTransition().setOnFinished(e -> fadeIn.playAnimation());
         fadeIn.playAnimation();
     }
-
-
 }
