@@ -1,7 +1,7 @@
 package game;
 
 /**
- * Created by Luca on 13/05/2017.
+ * @author Luca
  */
 public class Grid {
     private int btnCounter=0;
@@ -26,7 +26,8 @@ public class Grid {
         return buttons;
     }
 
-    private void initializeButtons() {
+    public void initializeButtons() {
+        buttons = new Btn[lines][columns];
         for(int i = 0; i<lines;i++){
             for(int j = 0 ; j< columns; j++){
                 buttons[i][j] = new Btn(btnCounter);

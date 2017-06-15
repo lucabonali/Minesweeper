@@ -1,0 +1,13 @@
+#btnPlayOffline{
+    -fx-background-image: url("../resources/pulsanteNero.png");
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#launcherToolbar{
+
+}
+#buttonExit{
+    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("../resources/exitIcon.png");
+    -fx-background-color: transparent;
+}

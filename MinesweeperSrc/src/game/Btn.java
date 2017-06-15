@@ -3,7 +3,7 @@ package game;
 import javafx.scene.control.Button;
 
 /**
- * Created by Luca on 13/05/2017.
+ * @author Luca
  */
 public class Btn extends Button {
     private int idButton,nearBombs;

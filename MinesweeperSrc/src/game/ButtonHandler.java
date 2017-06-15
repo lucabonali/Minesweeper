@@ -3,8 +3,10 @@ package game;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+
 /**
- * Created by Luca on 13/05/2017.
+ * Classe che modella il comportamento del clic che un bottone deve avere, solamente il modello funzionale, staccato dalla grafica
+ * @author Luca
  */
 public class ButtonHandler implements EventHandler<ActionEvent> {
     private int l, c, lMax, cMax;
@@ -18,167 +20,94 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
         this.buttons = buttons;
     }
 
+    /**
+     * metodo iniziale del bottone, che controlla che non ci sia una bomba e che verifica se il pulsante non ha una bandiera
+     * se è così lancia il metodo successivo, che si occupa di aprire la griglia
+     * @param event
+     */
     @Override
     public void handle(ActionEvent event) {
-        if(buttons[l][c].isBomb())
+        if(buttons[l][c].isBomb() && !checkFlag(l,c))
             lose();
-        else
-            checkFlag();
+        else if(!checkFlag(l,c)){
+            clickButton(l,c);
+        }
+
     }
 
-    private void checkFlag() {
-        if(!buttons[c][c].isFlaged())
-            clickButton(l, c);
-    }
-
-    private void clickButton(int l , int c) {
+    /**
+     * metodo che clicca il bottone settando il suo parametro clicked a true, e controlla che le bombe vicine siano 0, se lo sono
+     * apre anche tutti i bottoni vicini a lui
+     * @param l linea
+     * @param c colonna
+     */
+    private void clickButton(int l, int c) {
         buttons[l][c].setClicked(true);
         if(buttons[l][c].getNearBombs() == 0)
             openGrid(l,c);
+
     }
 
+    /**
+     * metodo che apre tutti i bottoni vicino al bottone che gli viene passato, se non nsono flaggati
+     * @param l
+     * @param c
+     */
     private void openGrid(int l, int c) {
-        if(upperLeftCase(l,c))
-            upperLeftOpen(l,c);
-        if(bottomLeftCase(l,c))
-            bottomLeftOpen(l,c);
-        if(leftCase(l,c))
-            leftCaseOpen(l,c);
-        if(upperCase(l,c))
-            upperCaseOpen(l,c);
-        if(upperRightCase(l,c))
-            upperRightOpen(l,c);
-        if(rightCase(l,c))
-            rightOpen(l,c);
-        if(rightBottomCase(l,c))
-            rightBottomOpen(l,c);
-        if(bottomCase(l,c))
-            bottomOpen(l,c);
-        if(centerCase(l,c))
-            centerOpen(l,c);
+        if(!checkFlag(l-1,c-1)){
+            openButton(l-1,c-1);
+        }
+        if(!checkFlag(l,c-1)){
+            openButton(l,c-1);
+        }
+        if(!checkFlag(l+1,c-1)){
+            openButton(l+1,c-1);
+        }
+        if(!checkFlag(l+1,c)){
+            openButton(l+1,c);
+        }
+        if(!checkFlag(l+1,c+1)){
+            openButton(l+1,c+1);
+        }
+        if(!checkFlag(l,c+1)){
+            openButton(l,c+1);
+        }
+        if(!checkFlag(l-1,c+1)){
+            openButton(l-1,c+1);
+        }
+        if(!checkFlag(l-1,c)){
+            openButton(l-1,c);
+        }
     }
 
-    private void centerOpen(int l , int c) {
-        clickButton(l-1,c-1);
-        clickButton(l-1,c);
-        clickButton(l-1,c+1);
-        clickButton(l,c-1);
-        clickButton(l,c+1);
-        clickButton(l+1,c-1);
-        clickButton(l+1,c);
-        clickButton(l+1,c+1);
+    /**
+     * Esegue la clickbutton su un bottone parametro, fa il catch quando il pulsante non esiste
+     * @param l
+     * @param c
+     */
+    private void openButton(int l, int c){
+        try {
+            clickButton(l, c);
+        }catch(NullPointerException | ArrayIndexOutOfBoundsException e){
+            return;
+        }
     }
 
-    private boolean centerCase(int l , int c) {
-        if(0<l && l<(lMax-1) && 0<c && c<(cMax-1))
+    /**
+     * controlla che il pulsante passatogli non sia flaggato
+     * @param l
+     * @param c
+     * @return
+     */
+    private boolean checkFlag(int l , int c){
+        if(buttons[l][c].isFlaged())
             return true;
         return false;
     }
 
-    private void bottomOpen(int l , int c) {
-        clickButton(l,c-1);
-        clickButton(l-1,c-1);
-        clickButton(l-1,c);
-        clickButton(l-1,c+1);
-        clickButton(l,c+1);
-    }
-
-    private boolean bottomCase(int l , int c) {
-        if(l==(lMax-1) && 0<c && c<(cMax-1))
-            return true;
-        return false;
-    }
-
-    private void rightBottomOpen(int l , int c) {
-        clickButton(l-1,c);
-        clickButton(l-1,c-1);
-        clickButton(l,c-1);
-    }
-
-    private boolean rightBottomCase(int l , int c) {
-        if(l==(lMax-1) && c==(cMax-1))
-            return true;
-        return false;
-    }
-
-    private void rightOpen(int l , int c) {
-        clickButton(l-1,c);
-        clickButton(l-1,c-1);
-        clickButton(l,c-1);
-        clickButton(l+1,c-1);
-        clickButton(l+1,c);
-    }
-
-    private boolean rightCase(int l , int c) {
-        if(c==(cMax-1) && 0<l && l<(lMax-1))
-            return true;
-        return false;
-    }
-
-    private void upperRightOpen(int l , int c) {
-        clickButton(l,c-1);
-        clickButton(l+1,c-1);
-        clickButton(l+1,c);
-    }
-
-    private boolean upperRightCase(int l , int c) {
-        if(l==0 && c ==(cMax-1))
-            return true;
-        return false;
-    }
-
-    private void upperCaseOpen(int l , int c) {
-        clickButton(l,c-1);
-        clickButton(l+1,c-1);
-        clickButton(l+1,c);
-        clickButton(l+1,c+1);
-        clickButton(l,c+1);
-    }
-
-    private boolean upperCase(int l , int c) {
-        if(l==0 && 0<c && c<(cMax-1))
-            return true;
-        return false;
-    }
-
-    private void leftCaseOpen(int l , int c) {
-        clickButton(l-1,c);
-        clickButton(l-1,c+1);
-        clickButton(l,c+1);
-        clickButton(l+1,c);
-        clickButton(l+1,c+1);
-    }
-
-    private boolean leftCase(int l , int c) {
-        if(c==0 && 0<l && l<(lMax-1))
-            return true;
-        return false;
-    }
-
-    private void bottomLeftOpen(int l , int c) {
-        clickButton(l-1,c);
-        clickButton(l-1,c+1);
-        clickButton(l,c+1);
-    }
-
-    private boolean bottomLeftCase(int l , int c) {
-        if(l==(lMax-1) && c==0)
-            return true;
-        return false;
-    }
-
-    private void upperLeftOpen(int l , int c) {
-        clickButton( l ,c+1);
-        clickButton(l+1,c);
-        clickButton(l+1,c+1);
-    }
-
-    private boolean upperLeftCase(int l , int c) {
-        if(l==0 && c==0)
-            return true;
-        return false;
-    }
-
+    /**
+     * chiamato quando il giocatore tocca una bomba, la partita finisce
+     */
     private void lose() {
         //Da implementare
     }
