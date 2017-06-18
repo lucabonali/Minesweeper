@@ -31,8 +31,9 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
             lose();
         else if(!checkFlag(l,c)){
             clickButton(l,c);
-        }
+            buttons[l][c].getGrid().getGameInterface().refreshScreen();
 
+        }
     }
 
     /**
@@ -49,46 +50,33 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
     }
 
     /**
-     * metodo che apre tutti i bottoni vicino al bottone che gli viene passato, se non nsono flaggati
+     * metodo richiamato quando viene premuto un pulsante che ha 0 bombe vicine, che apre ricorsivamente tutti i pulsanti
+     * intorno a lui
      * @param l
      * @param c
      */
-    private void openGrid(int l, int c) {
-        if(!checkFlag(l-1,c-1)){
-            openButton(l-1,c-1);
-        }
-        if(!checkFlag(l,c-1)){
-            openButton(l,c-1);
-        }
-        if(!checkFlag(l+1,c-1)){
-            openButton(l+1,c-1);
-        }
-        if(!checkFlag(l+1,c)){
-            openButton(l+1,c);
-        }
-        if(!checkFlag(l+1,c+1)){
-            openButton(l+1,c+1);
-        }
-        if(!checkFlag(l,c+1)){
-            openButton(l,c+1);
-        }
-        if(!checkFlag(l-1,c+1)){
-            openButton(l-1,c+1);
-        }
-        if(!checkFlag(l-1,c)){
-            openButton(l-1,c);
-        }
+    private void openGrid(int l , int c) {
+        checkNullThenClick(l-1,c-1);
+        checkNullThenClick(l-1,c);
+        checkNullThenClick(l-1,c+1);
+        checkNullThenClick(l,c-1);
+        checkNullThenClick(l,c+1);
+        checkNullThenClick(l+1,c-1);
+        checkNullThenClick(l+1,c);
+        checkNullThenClick(l+1,c+1);
     }
 
     /**
-     * Esegue la clickbutton su un bottone parametro, fa il catch quando il pulsante non esiste
+     * metodo richiamato in openGrid, che controlla che la posizione passata esista
      * @param l
      * @param c
      */
-    private void openButton(int l, int c){
-        try {
-            clickButton(l, c);
-        }catch(NullPointerException | ArrayIndexOutOfBoundsException e){
+    private void checkNullThenClick(int l, int c){
+        try{
+            if(!buttons[l][c].isClicked()) {
+                buttons[l][c].fire();
+            }
+        }catch(ArrayIndexOutOfBoundsException | NullPointerException e){
             return;
         }
     }
@@ -99,17 +87,17 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
      * @param c
      * @return
      */
-    private boolean checkFlag(int l , int c){
-        if(buttons[l][c].isFlaged())
-            return true;
-        return false;
+    private boolean checkFlag(int l , int c) {
+            if (buttons[l][c].isFlaged())
+                return true;
+            return false;
     }
 
     /**
      * chiamato quando il giocatore tocca una bomba, la partita finisce
      */
     private void lose() {
-        //Da implementare
+
     }
 
 

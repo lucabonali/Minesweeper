@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
  * @author Luca
  */
 public class Btn extends Button {
-    private int idButton,nearBombs;
+    private int idButton;
+    private int nearBombs = 0;
+    private Grid grid;
 
     private boolean clicked,flaged,bomb;
 
@@ -51,8 +53,17 @@ public class Btn extends Button {
         this.bomb = bomb;
     }
 
-    public Btn(int id){
-        this.idButton = id;
-
+    public Grid getGrid() {
+        return grid;
     }
+
+    public Btn(int id, Grid grid){
+        this.idButton = id;
+        this.grid = grid;
+        this.bomb = false;
+        this.flaged = false;
+        this.clicked = false;
+    }
+
+
 }

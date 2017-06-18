@@ -9,18 +9,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import javafx.scene.layout.Pane;
+
+
 import javafx.stage.Stage;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
 import java.io.IOException;
 
 /**
  * @author Andrea
  * @author Luca
  */
-public class GameGui {
+public class GameGui implements GameInterface {
     private Pane root;
     private double xOffset, yOffset;
     private Btn[][] buttons;
@@ -30,7 +34,7 @@ public class GameGui {
         this.root = new Pane();
         this.lines = lines;
         this.columns = columns;
-        Grid grid = new Grid(lines,columns);
+        Grid grid = new Grid(lines,columns, this);
         this.buttons = grid.getButtons();
     }
 
@@ -50,16 +54,28 @@ public class GameGui {
      * metodi di servizio che aggiungono l' immagine di sfondo, i bottoni, il titolo ecc
      * costruiscono la schermata della partita, e sono richiamati dal metodo createContent
      */
-    private void addButtons() {
+    @Override
+    public void addButtons() {
         for(int i = 0; i< lines; i++){
             for(int j = 0; j<columns;j++){
-                buttons[i][j].setPrefSize(20,20);
-                buttons[i][j].setLayoutX(20+20*j);
-                buttons[i][j].setLayoutY(20+20*i);
+                buttons[i][j].setPrefSize(25,20);
+                buttons[i][j].setLayoutX(20+24*j);
+                buttons[i][j].setLayoutY(20+25*i);
+                addButtonAnimation(i,j);
                 root.getChildren().add(buttons[i][j]);
             }
         }
     }
+
+    /**
+     * metodo che aggiunge l' animazione al bottone quando gli si passa sopra con il mouse
+     * @param i
+     * @param j
+     */
+    private void addButtonAnimation(int i , int j) {
+
+    }
+
     private void addBackground() {
         ImageView bgImage = new ImageView(new Image(getClass().getResource("../resources/sfondoGame.png").toExternalForm()));
         bgImage.setFitWidth(400);
@@ -95,6 +111,19 @@ public class GameGui {
             stage.setScene(scene);
             stage.centerOnScreen();
         });
+    }
+    @Override
+    public void refreshScreen(){
+        for(int i = 0 ; i < lines ; i++){
+            for(int j = 0; j<columns;j++){
+                if(buttons[i][j].isClicked()){
+                    buttons[i][j].setOpacity(0.5);
+                    if(buttons[i][j].getNearBombs() != 0) {
+                        buttons[i][j].setText(String.valueOf(buttons[i][j].getNearBombs()));
+                    }
+                }
+            }
+        }
     }
 
 }
