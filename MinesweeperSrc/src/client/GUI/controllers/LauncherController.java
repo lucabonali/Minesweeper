@@ -1,9 +1,9 @@
-package GUI.controllers;
+package client.GUI.controllers;
 
-import GUI.MinesweeperLauncher;
-import GUI.animations.FadeAnimation;
-import GUI.animations.ScaleAnimation;
-import GUI.gameGui.GameGui;
+import client.GUI.MinesweeperLauncher;
+import client.GUI.animations.FadeAnimation;
+import client.GUI.gameGui.GameGui;
+import client.GUI.animations.ScaleAnimation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,6 +23,8 @@ import java.util.ResourceBundle;
  * @author Luca
  */
 public class LauncherController implements Initializable {
+    @FXML
+    public Button onlineButton;
     @FXML
     private Button startButton;
     @FXML
@@ -87,5 +89,10 @@ public class LauncherController implements Initializable {
         fadeIn.getFadeTransition().setOnFinished(e -> fadeOut.playAnimation());
         fadeOut.getFadeTransition().setOnFinished(e -> fadeIn.playAnimation());
         fadeIn.playAnimation();
+    }
+
+    public void zoomButton(MouseEvent mouseEvent) {
+        onlineButton.setCursor(Cursor.HAND);
+        startButton.setCursor(Cursor.HAND);
     }
 }

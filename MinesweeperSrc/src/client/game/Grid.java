@@ -1,6 +1,6 @@
-package game;
+package client.game;
 
-import GUI.gameGui.GameInterface;
+import client.GUI.gameGui.GameInterface;
 import javafx.scene.input.MouseButton;
 
 import java.util.Random;

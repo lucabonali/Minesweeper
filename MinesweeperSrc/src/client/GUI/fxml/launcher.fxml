@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="280.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.LauncherController">
+<AnchorPane prefHeight="280.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.GUI.controllers.LauncherController">
    <children>
       <Pane prefHeight="282.0" prefWidth="500.0">
          <children>
@@ -25,7 +25,7 @@
                   <Font name="AR JULIAN" size="31.0" />
                </font>
             </Label>
-            <Button id="btnPlayOffline" fx:id="startButton" layoutX="95.0" layoutY="182.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
+            <Button id="btnPlayOffline" fx:id="startButton" layoutX="95.0" layoutY="182.0" mnemonicParsing="false" onAction="#startGame" onMouseEntered="#zoomButton" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
             <ToolBar id="launcherToolbar" layoutY="1.0" prefHeight="35.0" prefWidth="500.0" stylesheets="@../styleSheet/graphicStyle.css">
               <items>
                   <Pane prefHeight="25.0" prefWidth="457.0" />
@@ -40,6 +40,7 @@
                   </HBox>
               </items>
             </ToolBar>
+            <Button id="btnPlayOnline" fx:id="onlineButton" layoutX="305.0" layoutY="182.0" mnemonicParsing="false" onAction="#startGame" onMouseEntered="#zoomButton" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
          </children>
       </Pane>
    </children>

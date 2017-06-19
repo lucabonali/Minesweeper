@@ -1,4 +1,4 @@
-package game;
+package client.game;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

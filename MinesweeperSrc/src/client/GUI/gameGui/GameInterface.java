@@ -1,4 +1,4 @@
-package GUI.gameGui;
+package client.GUI.gameGui;
 
 /**
  * @author Luca

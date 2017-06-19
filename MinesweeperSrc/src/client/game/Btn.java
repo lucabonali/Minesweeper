@@ -1,4 +1,4 @@
-package game;
+package client.game;
 
 import javafx.scene.control.Button;
 
@@ -10,8 +10,11 @@ public class Btn extends Button {
     private int nearBombs = 0;
     private Grid grid;
 
-    private boolean clicked,flaged,bomb;
+    private boolean clicked;
+    private boolean flaged;
+    private boolean bomb;
 
+    private boolean refreshed;
 
     public int getIdButton() {
         return idButton;
@@ -20,6 +23,7 @@ public class Btn extends Button {
     public void setId(int id) {
         this.idButton = id;
     }
+
 
     public int getNearBombs() {
         return nearBombs;
@@ -57,12 +61,21 @@ public class Btn extends Button {
         return grid;
     }
 
+    public boolean isRefreshed() {
+        return refreshed;
+    }
+
+    public void setRefreshed(boolean refreshed) {
+        this.refreshed = refreshed;
+    }
+
     public Btn(int id, Grid grid){
         this.idButton = id;
         this.grid = grid;
         this.bomb = false;
         this.flaged = false;
         this.clicked = false;
+        this.refreshed = false;
     }
 
 

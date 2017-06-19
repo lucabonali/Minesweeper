@@ -1,4 +1,4 @@
-package GUI.animations;
+package client.GUI.animations;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.Node;

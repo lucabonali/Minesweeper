@@ -1,8 +1,9 @@
-package GUI.gameGui;
+package client.GUI.gameGui;
 
-import GUI.MinesweeperLauncher;
-import game.Btn;
-import game.Grid;
+import client.game.Btn;
+import client.GUI.MinesweeperLauncher;
+import client.GUI.animations.ScaleAnimation;
+import client.game.Grid;
 import javafx.application.Platform;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ import javafx.scene.layout.Pane;
 
 
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -116,7 +118,10 @@ public class GameGui implements GameInterface {
     public void refreshScreen(){
         for(int i = 0 ; i < lines ; i++){
             for(int j = 0; j<columns;j++){
-                if(buttons[i][j].isClicked()){
+                if(buttons[i][j].isClicked() && !buttons[i][j].isRefreshed()){
+                    buttons[i][j].setRefreshed(true);
+                    buttons[i][j].toFront();
+                    new ScaleAnimation(buttons[i][j],1.5,1.5, Duration.millis(400)).playAnimation();
                     buttons[i][j].setOpacity(0.5);
                     if(buttons[i][j].getNearBombs() != 0) {
                         buttons[i][j].setText(String.valueOf(buttons[i][j].getNearBombs()));

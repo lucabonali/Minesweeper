@@ -1,5 +1,5 @@
 #btnPlayOffline{
-    -fx-background-image: url("../resources/pulsanteNero.png");
+    -fx-background-image: url("../resources/pulsanteNeroSinglePlayer.png");
     -fx-background-color: transparent;
     -fx-background-repeat: no-repeat;
 }
@@ -10,4 +10,9 @@
     -fx-background-repeat: no-repeat;
     -fx-background-image: url("../resources/exitIcon.png");
     -fx-background-color: transparent;
+}
+#onlineButton{
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("../resources/pulsanteNeroMultiplayer.png");
 }
