@@ -3,16 +3,37 @@
     -fx-background-color: transparent;
     -fx-background-repeat: no-repeat;
 }
-#launcherToolbar{
 
+#launcherToolbar{
 }
+
 #buttonExit{
     -fx-background-repeat: no-repeat;
     -fx-background-image: url("../resources/exitIcon.png");
     -fx-background-color: transparent;
 }
-#onlineButton{
+#btnPlayOnline{
     -fx-background-color: transparent;
     -fx-background-repeat: no-repeat;
     -fx-background-image: url("../resources/pulsanteNeroMultiplayer.png");
+}
+#menuButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../resources/Menu.png");
+    -fx-background-repeat: no-repeat;
+}
+#starsButton{
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../resources/Star.png");
+}
+#loginButton{
+    -fx-background-image: url("../resources/login.png");
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#home{
+    -fx-background-image: url("../resources/Home.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
 }

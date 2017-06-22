@@ -12,7 +12,7 @@ import java.util.Map;
  * @author Luca
  */
 public class MainServer {
-    private static Map<Integer,String> playersMap = Collections.synchronizedMap(new HashMap<>());
+    static Map<Integer,String> playersMap = Collections.synchronizedMap(new HashMap<>());
 
     public static void main(String[] args) {
         Registry registry = null;

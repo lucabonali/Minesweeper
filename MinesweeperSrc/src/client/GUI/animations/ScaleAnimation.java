@@ -38,15 +38,17 @@ public class ScaleAnimation {
     /**
      * fa partire la transizione quando richiamato
      */
-    public void playAnimation(){
+    public void playAnimation(boolean back){
 
         scaleTransition.play();
-        scaleTransition.setOnFinished(e -> {
-            scaleTransition.setToX(1);
-            scaleTransition.setToY(1);
-            scaleTransition.setDuration(duration);
-            scaleTransition.play();
-        } );
+        if(back) {
+            scaleTransition.setOnFinished(e -> {
+                scaleTransition.setToX(1);
+                scaleTransition.setToY(1);
+                scaleTransition.setDuration(duration);
+                scaleTransition.play();
+            });
+        }
     }
 
 

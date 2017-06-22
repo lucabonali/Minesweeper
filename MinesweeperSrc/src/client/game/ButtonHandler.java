@@ -28,7 +28,7 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         if(buttons[l][c].isBomb() && !checkFlag(l,c))
-            lose();
+            lose(l,c);
         else if(!checkFlag(l,c)){
             clickButton(l,c);
             buttons[l][c].getGrid().getGameInterface().refreshScreen();
@@ -96,8 +96,8 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
     /**
      * chiamato quando il giocatore tocca una bomba, la partita finisce
      */
-    private void lose() {
-
+    private void lose(int l , int c) {
+        buttons[l][c].getGrid().getGameInterface().lose();
     }
 
 

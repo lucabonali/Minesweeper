@@ -5,9 +5,13 @@ import client.GUI.MinesweeperLauncher;
 import client.GUI.animations.ScaleAnimation;
 import client.game.Grid;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -27,16 +31,23 @@ import java.io.IOException;
  * @author Luca
  */
 public class GameGui implements GameInterface {
+    private int WIDTH, HEIGHT;
+
+
     private Pane root;
+    private ToolBar toolBar;
     private double xOffset, yOffset;
     private Btn[][] buttons;
-    private int lines,columns;
+    private int lines,columns, numberOfBombs;
 
-    public GameGui(int lines, int columns){
+    public GameGui(int lines, int columns, int numberOfBombs){
         this.root = new Pane();
         this.lines = lines;
         this.columns = columns;
-        Grid grid = new Grid(lines,columns, this);
+        this.numberOfBombs = numberOfBombs;
+        this.WIDTH = columns * 25;
+        this.HEIGHT = lines * 25;
+        Grid grid = new Grid(lines,columns,numberOfBombs, this);
         this.buttons = grid.getButtons();
     }
 
@@ -47,9 +58,57 @@ public class GameGui implements GameInterface {
      * @return
      */
     public Parent createContent(){
+        addToolbar();
         addBackground();
         addButtons();
         return root;
+    }
+
+    /**
+     * metodo che crea la toolbar e la aggiunge alla schermata di gioco
+     */
+    private void addToolbar() {
+        toolBar = new ToolBar(new Button("ciao"));
+        toolBar.setLayoutX(0);
+        toolBar.setLayoutY(0);
+        toolBar.setPrefSize(WIDTH,30);
+        toolBar.setVisible(true);
+        addToolbarButtons();
+        root.getChildren().add(toolBar);
+    }
+
+    /**
+     * metodo che aggiunge i bottoni della toolbar
+     */
+    private void addToolbarButtons() {
+        Button home = new Button("gergweafs");
+        home.setScaleX(20);
+        home.setScaleY(20);
+        home.setStyle(String.valueOf(getClass().getResourceAsStream("../styleSheet/graphicStyle.css")));
+        home.setId("home");
+        home.setOnAction(e -> backToLauncher());
+        toolBar.getItems().add(home);
+    }
+
+    /**
+     * metodo che ritorna al menu principale del gioco
+     */
+    private void backToLauncher() {
+        Platform.runLater(()->{
+            try {
+                Parent window = FXMLLoader.load(getClass().getResource("fxml/launcher.fxml"));
+                MinesweeperLauncher.getPrimaryStage().setScene(new Scene(window,500,275));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * metodo di servizio che crea l' immagine della bandiera e la ritorna
+     */
+    private ImageView createImageView(String path) {
+        return new ImageView(new Image(getClass().getResourceAsStream("../resources/"+ path)));
     }
 
     /**
@@ -60,9 +119,10 @@ public class GameGui implements GameInterface {
     public void addButtons() {
         for(int i = 0; i< lines; i++){
             for(int j = 0; j<columns;j++){
-                buttons[i][j].setPrefSize(25,20);
+                buttons[i][j].setPrefSize(25,25);
+                buttons[i][j].setPadding(new Insets(0,0,0,0));
                 buttons[i][j].setLayoutX(20+24*j);
-                buttons[i][j].setLayoutY(20+25*i);
+                buttons[i][j].setLayoutY(50+25*i);
                 addButtonAnimation(i,j);
                 root.getChildren().add(buttons[i][j]);
             }
@@ -103,32 +163,97 @@ public class GameGui implements GameInterface {
     }
 
 
-
-    public static void createGameGui(int lines, int columns) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
-        GameGui nextView = new GameGui(lines,columns);
+    /**
+     * metodo che crea la finestra di gioco
+     * @param lines
+     * @param columns
+     * @throws InterruptedException
+     * @throws UnsupportedAudioFileException
+     * @throws LineUnavailableException
+     * @throws IOException
+     */
+    public static void createGameGui(int lines, int columns,int numberOfBombs) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
+        GameGui nextView = new GameGui(lines,columns,numberOfBombs);
         Parent window = nextView.createContent();
         Platform.runLater(()->{
             Stage stage = MinesweeperLauncher.getPrimaryStage();
-            Scene scene = new Scene(window, 400, 500);
+            Scene scene = new Scene(window, (columns*25+30), (lines*25+70) );
             stage.setScene(scene);
             stage.centerOnScreen();
         });
     }
+
+    /**
+     * Esegue il refresh dello schremo in maniera grafica, metodo di gameInterface.
+     */
     @Override
     public void refreshScreen(){
         for(int i = 0 ; i < lines ; i++){
             for(int j = 0; j<columns;j++){
-                if(buttons[i][j].isClicked() && !buttons[i][j].isRefreshed()){
-                    buttons[i][j].setRefreshed(true);
-                    buttons[i][j].toFront();
-                    new ScaleAnimation(buttons[i][j],1.5,1.5, Duration.millis(400)).playAnimation();
-                    buttons[i][j].setOpacity(0.5);
-                    if(buttons[i][j].getNearBombs() != 0) {
-                        buttons[i][j].setText(String.valueOf(buttons[i][j].getNearBombs()));
-                    }
-                }
+                refreshFlags(i,j);
+                refreshClicked(i,j);
             }
         }
     }
+
+    /**
+     * prende come parametro una posizione e esegue il refresh
+     * @param i
+     * @param j
+     */
+    private void refreshClicked(int i , int j) {
+        if(buttons[i][j].isClicked() && !buttons[i][j].isRefreshed()){
+            buttons[i][j].setRefreshed(true);
+            buttons[i][j].toFront();
+            new ScaleAnimation(buttons[i][j],1.5,1.5, Duration.millis(400)).playAnimation(true);
+            buttons[i][j].setOpacity(0.5);
+            if(buttons[i][j].getNearBombs() != 0) {
+                buttons[i][j].setText(String.valueOf(buttons[i][j].getNearBombs()));
+            }
+        }
+    }
+
+    /**
+     * metodo che fa refresh dello stato delle bandiere, simile a refresh
+     */
+    private void refreshFlags(int i , int j) {
+        if(buttons[i][j].isFlaged())
+            buttons[i][j].setGraphic(createImageView("BandierinaTrasp.png"));
+        else
+            buttons[i][j].setGraphic(null);
+    }
+
+
+    /**
+     * metodo che fa terminare la partita, chiamato dalla classe ButtonHandler su gameInterface, che mostra anche la posizione
+     * delle bombe
+     */
+    @Override
+    public void lose() {
+        showBombs();
+        try {
+            createGameGui(lines,columns,numberOfBombs);
+        } catch (InterruptedException | UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+           System.out.println("Error creating new Scene");
+        }
+    }
+
+    /**
+     * metodo che mostra le bombe una volta terminata la partita una perdita
+     */
+    private void showBombs() {
+        for(int i = 0;i < lines ; i++){
+            for(int j = 0; j < columns; j++){
+                if(buttons[i][j].isBomb()) {
+                    buttons[i][j].setGraphic(createImageView("MinaTrasp.png"));
+                    buttons[i][j].toFront();
+                    new ScaleAnimation(buttons[i][j], 2, 2, Duration.millis(1000)).playAnimation(true);
+                }
+            }
+        }
+
+    }
+
+
 
 }

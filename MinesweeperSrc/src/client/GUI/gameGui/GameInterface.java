@@ -9,5 +9,7 @@ public interface GameInterface {
 
     void refreshScreen();
 
+    void lose();
+
 
 }

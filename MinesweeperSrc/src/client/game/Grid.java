@@ -1,6 +1,7 @@
 package client.game;
 
 import client.GUI.gameGui.GameInterface;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 
 import java.util.Random;
@@ -17,12 +18,13 @@ public class Grid {
 
     private GameInterface gameInterface;
 
-    public Grid(int lines, int columns, GameInterface gameInterface){
+    public Grid(int lines, int columns, int numberOfBombs, GameInterface gameInterface){
         this.gameInterface = gameInterface;
         this.lines = lines;
         this.columns = columns;
+        this.numberOfBombs = numberOfBombs;
         initializeButtons();
-        initializeBombs(15); // il numero di bombe gli andrà passato dal costruttore insieme a linee e colonne
+        initializeBombs(numberOfBombs); // il numero di bombe gli andrà passato dal costruttore insieme a linee e colonne
         initializeNearBombs();
     }
 
@@ -54,8 +56,11 @@ public class Grid {
                 buttons[i][j].setOnMouseClicked(e -> {
                     Btn button = (Btn) e.getSource();
                     if(e.getButton().equals(MouseButton.SECONDARY)) {
-                        System.out.println("Disarmo bottone");
-                        button.disarm();
+                        if(!(button.isFlaged() || button.isClicked()))
+                            button.setFlaged(true);
+                        else
+                            button.setFlaged(false);
+                        gameInterface.refreshScreen();
                     }
                 });
                 btnCounter++;
