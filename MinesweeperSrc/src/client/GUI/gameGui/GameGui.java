@@ -15,6 +15,7 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 
 
@@ -27,7 +28,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 /**
- * @author Andrea
  * @author Luca
  */
 public class GameGui implements GameInterface {
@@ -58,8 +58,9 @@ public class GameGui implements GameInterface {
      * @return
      */
     public Parent createContent(){
+        addBackground(); // Deve essere eseguito prima di tutto
+
         addToolbar();
-        addBackground();
         addButtons();
         return root;
     }
@@ -68,10 +69,10 @@ public class GameGui implements GameInterface {
      * metodo che crea la toolbar e la aggiunge alla schermata di gioco
      */
     private void addToolbar() {
-        toolBar = new ToolBar(new Button("ciao"));
+        toolBar = new ToolBar();
         toolBar.setLayoutX(0);
         toolBar.setLayoutY(0);
-        toolBar.setPrefSize(WIDTH,30);
+        toolBar.setPrefSize(WIDTH+30,30);
         toolBar.setVisible(true);
         addToolbarButtons();
         root.getChildren().add(toolBar);
@@ -81,13 +82,20 @@ public class GameGui implements GameInterface {
      * metodo che aggiunge i bottoni della toolbar
      */
     private void addToolbarButtons() {
-        Button home = new Button("gergweafs");
-        home.setScaleX(20);
-        home.setScaleY(20);
-        home.setStyle(String.valueOf(getClass().getResourceAsStream("../styleSheet/graphicStyle.css")));
-        home.setId("home");
-        home.setOnAction(e -> backToLauncher());
-        toolBar.getItems().add(home);
+        toolBar.getItems().addAll(homeButton());
+    }
+
+    private Button homeButton() {
+        Button homeButton = new Button();
+        homeButton.setPadding(new Insets(0,0,0,0));
+        homeButton.setGraphic(createImageView("../resources/Home.png"));
+        homeButton.setBackground(Background.EMPTY);
+        homeButton.setCursor(Cursor.HAND);
+        homeButton.setOnAction(e -> backToLauncher());
+        homeButton.setOnMouseEntered(e -> new ScaleAnimation(homeButton,1.5,1.5, Duration.millis(500)).playAnimation(false));
+        homeButton.setOnMouseExited(e -> new ScaleAnimation(homeButton,1,1, Duration.millis(500)).playAnimation(false));
+        homeButton.setPrefSize(25,25);
+        return homeButton;
     }
 
     /**
@@ -96,7 +104,7 @@ public class GameGui implements GameInterface {
     private void backToLauncher() {
         Platform.runLater(()->{
             try {
-                Parent window = FXMLLoader.load(getClass().getResource("fxml/launcher.fxml"));
+                Parent window = FXMLLoader.load(getClass().getResource("../fxml/launcher.fxml"));
                 MinesweeperLauncher.getPrimaryStage().setScene(new Scene(window,500,275));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -105,7 +113,7 @@ public class GameGui implements GameInterface {
     }
 
     /**
-     * metodo di servizio che crea l' immagine della bandiera e la ritorna
+     * metodo di servizio che crea l' immagine e la ritorna ( in base al percorso cambia l' immagine che gli si ritorna
      */
     private ImageView createImageView(String path) {
         return new ImageView(new Image(getClass().getResourceAsStream("../resources/"+ path)));

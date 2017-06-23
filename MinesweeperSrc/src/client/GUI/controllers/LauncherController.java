@@ -36,6 +36,8 @@ public class LauncherController implements Initializable {
     static final int HARD_COLUMNS = 30;
 
     @FXML
+    private Button iconifyButton;
+    @FXML
     private RadioButton easy, medium, hard;
     @FXML
     private Button onlineButton;
@@ -175,5 +177,9 @@ public class LauncherController implements Initializable {
 
     public void zoomOut(MouseEvent mouseEvent) {
         new ScaleAnimation((Node)mouseEvent.getSource(),1,1,Duration.millis(500)).playAnimation(false);
+    }
+
+    public void iconify(ActionEvent actionEvent) {
+        MinesweeperLauncher.getPrimaryStage().setIconified(true);
     }
 }

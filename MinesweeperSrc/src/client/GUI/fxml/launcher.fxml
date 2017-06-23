@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="anchorPane" prefHeight="280.0" prefWidth="474.0" stylesheets="@../styleSheet/graphicStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.GUI.controllers.LauncherController">
@@ -47,6 +48,16 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <VBox layoutX="423.0">
+                           <children>
+                              <Pane prefHeight="11.0" prefWidth="19.0" />
+                              <Button id="iconifyButton" fx:id="iconifyButton" mnemonicParsing="false" onAction="#iconify" prefHeight="25.0" prefWidth="26.0" stylesheets="@../styleSheet/graphicStyle.css">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children></Pane>
                   <HBox prefHeight="25.0" prefWidth="25.0">
                      <children>

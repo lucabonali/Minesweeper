@@ -32,8 +32,9 @@
     -fx-background-color: transparent;
     -fx-background-repeat: no-repeat;
 }
-#home{
-    -fx-background-image: url("../resources/Home.png");
-    -fx-background-repeat: no-repeat;
+
+#iconifyButton{
+    -fx-background-image: url("../resources/iconifyButton.png");
     -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
 }
