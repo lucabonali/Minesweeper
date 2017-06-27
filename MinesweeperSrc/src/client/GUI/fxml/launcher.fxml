@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorPane" prefHeight="280.0" prefWidth="474.0" stylesheets="@../styleSheet/graphicStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.GUI.controllers.LauncherController">
+<AnchorPane id="anchorPane" prefHeight="280.0" prefWidth="474.0" stylesheets="@../styleSheet/graphicStyle.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.GUI.controllers.LauncherController">
    <children>
       <Pane prefHeight="282.0" prefWidth="500.0">
          <children>
@@ -43,7 +43,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button id="loginButton" layoutX="70.0" mnemonicParsing="false" onMouseEntered="#zoomIn" onMouseExited="#zoomOut" prefHeight="25.0" prefWidth="24.0" stylesheets="@../styleSheet/graphicStyle.css">
+                        <Button id="loginButton" fx:id="loginButton" layoutX="70.0" mnemonicParsing="false" onAction="#showLogin" onMouseEntered="#zoomIn" onMouseExited="#zoomOut" prefHeight="25.0" prefWidth="24.0" stylesheets="@../styleSheet/graphicStyle.css">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -73,7 +73,7 @@
                   </HBox>
               </items>
             </ToolBar>
-            <Button id="btnPlayOnline" fx:id="onlineButton" layoutX="305.0" layoutY="182.0" mnemonicParsing="false" onAction="#startGame" onMouseEntered="#zoomIn" onMouseExited="#zoomOut" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
+            <Button id="btnPlayOnline" fx:id="onlineButton" layoutX="305.0" layoutY="182.0" mnemonicParsing="false" onAction="#startMultiGame" onMouseEntered="#zoomIn" onMouseExited="#zoomOut" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styleSheet/graphicStyle.css" />
             <RadioButton fx:id="easy" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#selectEasy" opacity="0.0" text="Easy" textFill="WHITE">
                <font>
                   <Font name="AR JULIAN" size="13.0" />

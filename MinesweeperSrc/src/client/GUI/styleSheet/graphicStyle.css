@@ -38,3 +38,15 @@
     -fx-background-color: transparent;
     -fx-background-repeat: no-repeat;
 }
+
+#submitLoginButton{
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("../resources/submitButton.png");
+}
+
+#homeButton{
+    -fx-background-image: url("../resources/Home.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+}

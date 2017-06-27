@@ -80,7 +80,6 @@ public class Grid {
         if(!buttons[lPos][cPos].isBomb()) {
             buttons[lPos][cPos].setBomb(true);
             currentBombs++;
-            System.out.println("Bottone  "+ lPos + cPos+buttons[lPos][cPos].isBomb() + " : " + currentBombs);
         }
         if(currentBombs < numberOfBombs)
             initializeBombs(numberOfBombs);

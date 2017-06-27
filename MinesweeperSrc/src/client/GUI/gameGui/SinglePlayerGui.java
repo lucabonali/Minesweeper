@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * @author Luca
  */
-public class GameGui implements GameInterface {
+public class SinglePlayerGui implements GameInterface {
     private int WIDTH, HEIGHT;
 
 
@@ -40,7 +40,7 @@ public class GameGui implements GameInterface {
     private Btn[][] buttons;
     private int lines,columns, numberOfBombs;
 
-    public GameGui(int lines, int columns, int numberOfBombs){
+    public SinglePlayerGui(int lines, int columns, int numberOfBombs){
         this.root = new Pane();
         this.lines = lines;
         this.columns = columns;
@@ -59,8 +59,7 @@ public class GameGui implements GameInterface {
      */
     public Parent createContent(){
         addBackground(); // Deve essere eseguito prima di tutto
-
-        addToolbar();
+        addToolbar(WIDTH);
         addButtons();
         return root;
     }
@@ -68,7 +67,7 @@ public class GameGui implements GameInterface {
     /**
      * metodo che crea la toolbar e la aggiunge alla schermata di gioco
      */
-    private void addToolbar() {
+    public void addToolbar(int WIDTH) {
         toolBar = new ToolBar();
         toolBar.setLayoutX(0);
         toolBar.setLayoutY(0);
@@ -106,6 +105,7 @@ public class GameGui implements GameInterface {
             try {
                 Parent window = FXMLLoader.load(getClass().getResource("../fxml/launcher.fxml"));
                 MinesweeperLauncher.getPrimaryStage().setScene(new Scene(window,500,275));
+                MinesweeperLauncher.getPrimaryStage().centerOnScreen();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -181,7 +181,7 @@ public class GameGui implements GameInterface {
      * @throws IOException
      */
     public static void createGameGui(int lines, int columns,int numberOfBombs) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
-        GameGui nextView = new GameGui(lines,columns,numberOfBombs);
+        SinglePlayerGui nextView = new SinglePlayerGui(lines,columns,numberOfBombs);
         Parent window = nextView.createContent();
         Platform.runLater(()->{
             Stage stage = MinesweeperLauncher.getPrimaryStage();
@@ -191,6 +191,9 @@ public class GameGui implements GameInterface {
         });
     }
 
+    public Parent getRoot(){
+        return root;
+    }
     /**
      * Esegue il refresh dello schremo in maniera grafica, metodo di gameInterface.
      */
@@ -231,7 +234,6 @@ public class GameGui implements GameInterface {
             buttons[i][j].setGraphic(null);
     }
 
-
     /**
      * metodo che fa terminare la partita, chiamato dalla classe ButtonHandler su gameInterface, che mostra anche la posizione
      * delle bombe
@@ -245,6 +247,7 @@ public class GameGui implements GameInterface {
            System.out.println("Error creating new Scene");
         }
     }
+
 
     /**
      * metodo che mostra le bombe una volta terminata la partita una perdita
@@ -262,6 +265,20 @@ public class GameGui implements GameInterface {
 
     }
 
+    public void setHEIGHT(int HEIGHT) {
+        this.HEIGHT = HEIGHT;
+    }
 
 
+    public int getHEIGHT(){
+        return HEIGHT;
+    }
+
+    public void setWIDTH(int WIDTH){
+        this.WIDTH = WIDTH;
+    }
+
+    public int getWIDTH(){
+        return WIDTH;
+    }
 }

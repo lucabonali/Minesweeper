@@ -2,23 +2,31 @@ package client.GUI.controllers;
 
 import client.GUI.MinesweeperLauncher;
 import client.GUI.animations.FadeAnimation;
-import client.GUI.gameGui.GameGui;
+import client.GUI.gameGui.MultiplayerGui;
+import client.GUI.gameGui.SinglePlayerGui;
 import client.GUI.animations.ScaleAnimation;
+import client.clientConnection.ClientSweeper;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,6 +44,8 @@ public class LauncherController implements Initializable {
     static final int HARD_COLUMNS = 30;
 
     @FXML
+    private Button loginButton;
+    @FXML
     private Button iconifyButton;
     @FXML
     private RadioButton easy, medium, hard;
@@ -50,10 +60,11 @@ public class LauncherController implements Initializable {
     @FXML
     private Button buttonExit;
 
-
+    static boolean isLogged;
     private FadeAnimation fadeIn,fadeOut;
     private ScaleAnimation big,small;
     private int lines, columns, numberOfBombs;
+    private Stage login;
 
     /**
      * metodo che chiude la finestra quando viene premuto il pulsante di chiusura
@@ -73,10 +84,21 @@ public class LauncherController implements Initializable {
      */
     public void startGame(ActionEvent actionEvent) {
         try {
-            GameGui.createGameGui(lines,columns, numberOfBombs);
+            SinglePlayerGui.createGameGui(lines,columns, numberOfBombs);
         } catch (InterruptedException | UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * metodo che inizia la partita multigiocatore, se è stato effettuato il login e se premuto sul pulsante MultiPlayer
+     * @param actionEvent
+     */
+    public void startMultiGame(ActionEvent actionEvent) {
+        if(isLogged)
+            MultiplayerGui.createGameGui(lines,columns,numberOfBombs);
+        else
+            loginButton.fire();
     }
 
     /**
@@ -182,4 +204,24 @@ public class LauncherController implements Initializable {
     public void iconify(ActionEvent actionEvent) {
         MinesweeperLauncher.getPrimaryStage().setIconified(true);
     }
+
+
+    public void showLogin(ActionEvent actionEvent) {
+        if(!isLogged) {
+            login = new Stage();
+            Platform.runLater(() -> {
+                Parent window = null;
+                try {
+                    window = FXMLLoader.load(getClass().getResource("../fxml/login.fxml"));
+                } catch (IOException e) {
+                }
+                login.setScene(new Scene(window, 350, 197));
+                login.centerOnScreen();
+                login.setOnCloseRequest(e -> System.exit(0));
+                login.initStyle(StageStyle.UNDECORATED);
+                login.show();
+            });
+        }
+    }
+
 }
