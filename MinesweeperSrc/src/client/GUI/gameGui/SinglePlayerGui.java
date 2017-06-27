@@ -39,6 +39,7 @@ public class SinglePlayerGui implements GameInterface {
     private double xOffset, yOffset;
     private Btn[][] buttons;
     private int lines,columns, numberOfBombs;
+    private int buttonClicked = 0;
 
     public SinglePlayerGui(int lines, int columns, int numberOfBombs){
         this.root = new Pane();
@@ -199,6 +200,7 @@ public class SinglePlayerGui implements GameInterface {
      */
     @Override
     public void refreshScreen(){
+        buttonClicked = 0;
         for(int i = 0 ; i < lines ; i++){
             for(int j = 0; j<columns;j++){
                 refreshFlags(i,j);
@@ -215,6 +217,7 @@ public class SinglePlayerGui implements GameInterface {
     private void refreshClicked(int i , int j) {
         if(buttons[i][j].isClicked() && !buttons[i][j].isRefreshed()){
             buttons[i][j].setRefreshed(true);
+            buttonClicked++;
             buttons[i][j].toFront();
             new ScaleAnimation(buttons[i][j],1.5,1.5, Duration.millis(400)).playAnimation(true);
             buttons[i][j].setOpacity(0.5);
@@ -252,7 +255,7 @@ public class SinglePlayerGui implements GameInterface {
     /**
      * metodo che mostra le bombe una volta terminata la partita una perdita
      */
-    private void showBombs() {
+    public void showBombs() {
         for(int i = 0;i < lines ; i++){
             for(int j = 0; j < columns; j++){
                 if(buttons[i][j].isBomb()) {
@@ -262,6 +265,7 @@ public class SinglePlayerGui implements GameInterface {
                 }
             }
         }
+
 
     }
 
@@ -281,4 +285,13 @@ public class SinglePlayerGui implements GameInterface {
     public int getWIDTH(){
         return WIDTH;
     }
+
+    public int getButtonClicked() {
+        return buttonClicked;
+    }
+    public void setButtonClicked(int buttonClicked){ this.buttonClicked = buttonClicked;}
+
+    public int getLines(){return lines;}
+    public int getColumns(){return columns;}
+    public int getNumberOfBombs(){return numberOfBombs;}
 }

@@ -3,9 +3,16 @@ package server;
 import api.ClientSweeperInterface;
 import api.GameMod;
 import api.ServerSweeperInterface;
+import client.clientConnection.ClientSweeper;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
 
 /**
  * Classe che modella la comunicazione da Client verso Server
@@ -14,11 +21,12 @@ import java.rmi.server.UnicastRemoteObject;
 public class ServerSweeper extends UnicastRemoteObject implements ServerSweeperInterface {
     private ConnectionDB connectionDB;
     private static final String QUERY_LOGIN = "";
-    private ClientSweeperInterface clientSweeper;
+    private List<Game> gameList;
 
 
     protected ServerSweeper() throws RemoteException {
         //connectionDB = new ConnectionDB();
+        gameList = new ArrayList<>();
     }
 
 
@@ -54,28 +62,31 @@ public class ServerSweeper extends UnicastRemoteObject implements ServerSweeperI
      * @throws RemoteException
      */
     @Override
-    public boolean createGame(GameMod gameMod) throws RemoteException {
-
-
+    public boolean createGame(GameMod gameMod, ClientSweeperInterface clientSweeperInterface) throws RemoteException {
+        Game game = getFreeGame();
+        game.addPlayer(clientSweeperInterface);
 
         return false;
     }
 
     /**
-     * metodo che aggiunge al server l' interfaccia del client, per completare la comunicazione e per poter
-     * chiamare da qui i metodi sul client
-     * @param clientSweeperInterface
+     * metodo che ricerca una partita con un giocatore in attesa, e se non la trova allora ne comincia una nuova
+     * @return
      */
-    @Override
-    public void addClientInterface(ClientSweeperInterface clientSweeperInterface){
-        this.clientSweeper = clientSweeperInterface;
+    private Game getFreeGame() {
+        for(Game g : gameList){
+            if(!g.isStarted())
+                return g;
+        }
+        Game game = new Game();
+        gameList.add(game);
+        return game;
     }
 
+    @Override
+    public void sendInterference() throws RemoteException {
 
-
-
-
-
+    }
 
 
 }

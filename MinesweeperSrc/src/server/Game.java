@@ -2,6 +2,8 @@ package server;
 
 import api.ClientSweeperInterface;
 
+import java.util.List;
+
 /**
  * Classe che modella il comportamento della partita, in due giocatori, i suoi metodi chiameranno e saranno chiamati dalla classe ServerSweeper
  * per la comunicazione con il client
@@ -10,13 +12,18 @@ import api.ClientSweeperInterface;
 public class Game {
     private int gameMod;
     private boolean started;
-    private ClientSweeperInterface player1,player2;
+    private List<ClientSweeperInterface> players;
 
-    public Game(int gameMod, ClientSweeperInterface player1, ClientSweeperInterface player2){
-        this.gameMod = gameMod;
-        this.player1 = player1;
-        this.player2 = player2;
-        startGame();
+    public Game(){
+
+    }
+
+    public void addPlayer(ClientSweeperInterface clientSweeperInterface){
+        if(players.size()<2) {
+            players.add(clientSweeperInterface);
+            if(players.size() == 2)
+                startGame();
+        }
     }
 
     public void setStarted(boolean started) {
@@ -30,7 +37,7 @@ public class Game {
     /**
      * Metodo che inizia la partita
      */
-    private void startGame() {
+    public void startGame() {
         setStarted(true);
 
     }

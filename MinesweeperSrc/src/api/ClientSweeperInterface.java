@@ -12,6 +12,6 @@ public interface ClientSweeperInterface extends Remote {
 
     void gameStarted() throws RemoteException;
 
-    void sendDisturb() throws RemoteException;
+    void sendInterference() throws RemoteException;
 
 }

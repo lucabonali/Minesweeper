@@ -1,5 +1,7 @@
 package api;
 
+import client.clientConnection.ClientSweeper;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -22,9 +24,10 @@ public interface ServerSweeperInterface extends Remote {
      * @return
      * @throws RemoteException
      */
-    boolean createGame(GameMod gameMod) throws RemoteException;
+    boolean createGame(GameMod gameMod, ClientSweeperInterface clientSweeperInterface) throws RemoteException;
 
-    void addClientInterface(ClientSweeperInterface clientSweeperInterface) throws RemoteException;
+
+    void sendInterference() throws RemoteException;
 
 
 }

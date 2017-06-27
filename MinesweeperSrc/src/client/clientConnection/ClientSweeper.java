@@ -52,7 +52,7 @@ public class ClientSweeper implements ClientSweeperInterface {
 
 
     public boolean createGame(GameMod gameMod) throws RemoteException {
-        serverSweeper.createGame(gameMod);
+        serverSweeper.createGame(gameMod,this);
         return false;
     }
 
@@ -62,7 +62,7 @@ public class ClientSweeper implements ClientSweeperInterface {
     }
 
     @Override
-    public void sendDisturb() throws RemoteException {
+    public void sendInterference() throws RemoteException {
 
     }
 
@@ -71,7 +71,7 @@ public class ClientSweeper implements ClientSweeperInterface {
      * ritorna un' istanza dell' oggetto di questa classe
      * @return
      */
-    public ClientSweeper getInstance(){
+    public static ClientSweeper getInstance(){
         return instance;
     }
 
