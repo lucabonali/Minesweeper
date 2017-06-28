@@ -5,6 +5,7 @@ package client.GUI.gameGui;
  */
 public interface GameInterface {
 
+
     void addButtons();
 
     void refreshScreen();

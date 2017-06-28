@@ -22,6 +22,7 @@ import java.rmi.RemoteException;
  * * @author Luca
  */
 public class MultiplayerGui extends SinglePlayerGui {
+    private boolean isStarted;
     private Pane barPane;
     private Pane chargeBar;
     private VBox barPaneVBox,chargePaneVBox;
@@ -36,14 +37,25 @@ public class MultiplayerGui extends SinglePlayerGui {
         setWIDTH(columns*25+100);
         setHEIGHT(lines*25+70);
         clientSweeper = ClientSweeper.getInstance();
+        clientSweeper.setMultiplayerGui(this);
     }
 
+    public void setStarted(boolean started){
+        this.isStarted = started;
+    }
 
     @Override
     public Parent createContent() {
         multiRoot = (Pane) super.createContent();
         addChargeBarPane();
         return multiRoot ;
+    }
+
+
+    @Override
+    public void startTimer(){
+        if(isStarted)
+            super.startTimer();
     }
 
     private void addChargeBarPane() {

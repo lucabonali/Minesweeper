@@ -2,21 +2,28 @@ package client.clientConnection;
 
 import api.ClientSweeperInterface;
 import api.GameMod;
+import api.PlayerSweeperInterface;
 import api.ServerSweeperInterface;
+import client.GUI.gameGui.GameInterface;
+import client.GUI.gameGui.MultiplayerGui;
+import server.PlayerSweeper;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 /**
  * @author Luca
  */
-public class ClientSweeper implements ClientSweeperInterface {
+public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperInterface {
     private static final String SERVER = "serverSweeper";
     private Registry registry;
     private ServerSweeperInterface serverSweeper;
+    private PlayerSweeperInterface playerSweeper;
     private static ClientSweeper instance;
+    private MultiplayerGui multiplayerGui;
     private String userName, password;
 
 
@@ -26,7 +33,9 @@ public class ClientSweeper implements ClientSweeperInterface {
     /**
      * costruttore della classe che si occupa di fare il Lookup del Registry contenente l' oggetto serverSweeper
      */
-    public ClientSweeper(String userName, String password){
+    public ClientSweeper(String userName, String password) throws RemoteException {
+        super();
+
         try {
             registry = LocateRegistry.getRegistry(1099);
             serverSweeper = (ServerSweeperInterface) registry.lookup(SERVER);
@@ -41,24 +50,43 @@ public class ClientSweeper implements ClientSweeperInterface {
      * @param password
      * @return
      */
-    public boolean login(String userName, String password){
+    public void login(String userName, String password){
         try {
-            return serverSweeper.login(userName,password);
+            playerSweeper = (PlayerSweeperInterface) serverSweeper.login(userName,password);
+            System.out.println("Ottengo Player Sweeper");
         } catch (RemoteException e) {
-            System.out.println("Login ERROR");
-            return false;
+            e.printStackTrace();
         }
     }
 
 
     public boolean createGame(GameMod gameMod) throws RemoteException {
-        serverSweeper.createGame(gameMod,this);
+        System.out.println("Creo la partita");
+        playerSweeper.createGame(gameMod,this);
+        System.out.println("Partita creata");
         return false;
+    }
+
+    public void setMultiplayerGui(MultiplayerGui multiplayerGui){this.multiplayerGui = multiplayerGui;}
+
+    @Override
+    public void setGame() throws RemoteException {
+
     }
 
     @Override
     public void gameStarted() throws RemoteException {
 
+    }
+
+    /**
+     * metodo che fa partire il timer della partita multigiocatore
+     * @throws RemoteException
+     */
+    @Override
+    public void startTimer() throws RemoteException {
+       multiplayerGui.setStarted(true);
+       multiplayerGui.startTimer();
     }
 
     @Override
@@ -81,8 +109,10 @@ public class ClientSweeper implements ClientSweeperInterface {
      * @param password
      * @return
      */
-    public static ClientSweeper createInstance(String username, String password) {
+    public static ClientSweeper createInstance(String username, String password) throws RemoteException {
         instance = new ClientSweeper(username,password);
         return instance;
     }
+
+    public PlayerSweeperInterface getPlayerSweeper(){return playerSweeper;}
 }

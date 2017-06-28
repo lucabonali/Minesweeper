@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 /**
@@ -41,7 +42,12 @@ public class LoginController implements Initializable {
             return;
         }
         else{
-            ClientSweeper clientSweeper = ClientSweeper.createInstance(userName.getText(),password.getText());
+            ClientSweeper clientSweeper = null;
+            try {
+                clientSweeper = ClientSweeper.createInstance(userName.getText(),password.getText());
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
             clientSweeper.login(userName.getText(),password.getText());
             LauncherController.isLogged = true;
             backToLauncher();

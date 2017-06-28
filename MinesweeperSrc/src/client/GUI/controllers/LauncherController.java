@@ -1,5 +1,6 @@
 package client.GUI.controllers;
 
+import api.GameMod;
 import client.GUI.MinesweeperLauncher;
 import client.GUI.animations.FadeAnimation;
 import client.GUI.gameGui.MultiplayerGui;
@@ -29,6 +30,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 /**
@@ -95,8 +97,20 @@ public class LauncherController implements Initializable {
      * @param actionEvent
      */
     public void startMultiGame(ActionEvent actionEvent) {
-        if(isLogged)
-            MultiplayerGui.createGameGui(lines,columns,numberOfBombs);
+        if(isLogged) {
+                try {
+                    if(medium.isSelected())
+                        ClientSweeper.getInstance().createGame(GameMod.EASY);
+                    if(hard.isSelected())
+                        ClientSweeper.getInstance().createGame(GameMod.HARD);
+                    else
+                        ClientSweeper.getInstance().createGame(GameMod.EASY);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                    System.out.println("ERROR CREATING MULTIPLAYER GAME");
+                }
+            MultiplayerGui.createGameGui(lines, columns, numberOfBombs);
+        }
         else
             loginButton.fire();
     }

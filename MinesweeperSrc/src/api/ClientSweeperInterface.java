@@ -10,7 +10,11 @@ import java.rmi.RemoteException;
  */
 public interface ClientSweeperInterface extends Remote {
 
+    void setGame() throws RemoteException;
+
     void gameStarted() throws RemoteException;
+
+    void startTimer() throws RemoteException;
 
     void sendInterference() throws RemoteException;
 

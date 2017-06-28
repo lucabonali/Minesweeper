@@ -8,17 +8,23 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.Background;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 
 
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -26,6 +32,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import java.io.IOException;
+
+import static java.lang.Thread.sleep;
 
 /**
  * @author Luca
@@ -36,6 +44,7 @@ public class SinglePlayerGui implements GameInterface {
 
     private Pane root;
     private ToolBar toolBar;
+    private Label timerLabel;
     private double xOffset, yOffset;
     private Btn[][] buttons;
     private int lines,columns, numberOfBombs;
@@ -82,7 +91,27 @@ public class SinglePlayerGui implements GameInterface {
      * metodo che aggiunge i bottoni della toolbar
      */
     private void addToolbarButtons() {
-        toolBar.getItems().addAll(homeButton());
+        toolBar.getItems().addAll(homeButton(),addDivisorPane(),addTimer());
+    }
+
+    private Pane addDivisorPane() {
+        Pane divisor = new Pane();
+        divisor.setPrefWidth(200);
+        divisor.setPrefHeight(30);
+        return divisor;
+    }
+
+    private Label addTimer() {
+        timerLabel = new Label();
+        timerLabel.setFont(Font.font("AR JULIAN", 13));
+        timerLabel.setEffect(new DropShadow());
+        startTimer();
+        return timerLabel;
+    }
+
+    public void startTimer() {
+        Thread timerThread = new Thread(new Timer());
+        timerThread.start();
     }
 
     private Button homeButton() {
@@ -294,4 +323,41 @@ public class SinglePlayerGui implements GameInterface {
     public int getLines(){return lines;}
     public int getColumns(){return columns;}
     public int getNumberOfBombs(){return numberOfBombs;}
+
+
+
+
+
+
+    class Timer implements Runnable {
+        private int time = 0;
+        private SinglePlayerGui singlePlayerGui;
+
+        @Override
+        public void run() {
+
+            while (true){
+                time++;
+                setTime();
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    System.out.println("ERROR SLEEPING TIMER");
+                }
+            }
+        }
+
+        public void setTime(){
+            Platform.runLater(() -> {
+                if(time < 10)
+                    timerLabel.setText("00" + time);
+                if(time > 10 && time< 100)
+                    timerLabel.setText("0" + time);
+                else
+                    timerLabel.setText(""+time);
+            });
+        }
+
+    }
+
 }

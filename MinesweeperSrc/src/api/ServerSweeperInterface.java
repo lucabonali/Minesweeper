@@ -16,18 +16,9 @@ public interface ServerSweeperInterface extends Remote {
      * @return
      * @throws RemoteException
      */
-    boolean login(String username, String password) throws RemoteException;
-
-    /**
-     * metodo che permette di creare una partita, attendendo che un giocatore vi partecipi
-     * @param gameMod
-     * @return
-     * @throws RemoteException
-     */
-    boolean createGame(GameMod gameMod, ClientSweeperInterface clientSweeperInterface) throws RemoteException;
+    PlayerSweeperInterface login(String username, String password) throws RemoteException;
 
 
-    void sendInterference() throws RemoteException;
 
 
 }
