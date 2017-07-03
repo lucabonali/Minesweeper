@@ -2,9 +2,9 @@ package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.sql.ResultSet;
 
 /**
- * @author Andrea
  * @author Luca
  */
 public interface PlayerSweeperInterface extends Remote {
@@ -19,4 +19,14 @@ public interface PlayerSweeperInterface extends Remote {
 
 
     void sendInterference() throws RemoteException;
+
+    void sendLose() throws RemoteException;
+
+    void surrender() throws RemoteException;
+
+    void saveGame(int time , GameMod gameMod) throws RemoteException;
+
+    void getScores(GameMod gameMod) throws RemoteException;
+
+
 }

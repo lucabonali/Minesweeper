@@ -1,18 +1,15 @@
 package client.clientConnection;
 
-import api.ClientSweeperInterface;
-import api.GameMod;
-import api.PlayerSweeperInterface;
-import api.ServerSweeperInterface;
-import client.GUI.gameGui.GameInterface;
+import api.*;
 import client.GUI.gameGui.MultiplayerGui;
-import server.PlayerSweeper;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * @author Luca
@@ -25,10 +22,14 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
     private static ClientSweeper instance;
     private MultiplayerGui multiplayerGui;
     private String userName, password;
+    private List<String> scoreNames;
+    private List<Integer> scoreTimes;
 
-
+    private boolean logged = false;
 
     //Metodi richiamati dal client verso il serverSweeper
+
+
 
     /**
      * costruttore della classe che si occupa di fare il Lookup del Registry contenente l' oggetto serverSweeper
@@ -52,22 +53,38 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
      */
     public void login(String userName, String password){
         try {
-            playerSweeper = (PlayerSweeperInterface) serverSweeper.login(userName,password);
+            playerSweeper = (PlayerSweeperInterface) serverSweeper.login(userName,password,this);
             System.out.println("Ottengo Player Sweeper");
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
-
     public boolean createGame(GameMod gameMod) throws RemoteException {
         System.out.println("Creo la partita");
-        playerSweeper.createGame(gameMod,this);
-        System.out.println("Partita creata");
+        if(playerSweeper.createGame(gameMod,this))
+            logged = true;
+        else{
+            System.out.println("Errore di login");
+        }
         return false;
     }
 
+
+    public boolean isLogged() {
+        return logged;
+    }
+
     public void setMultiplayerGui(MultiplayerGui multiplayerGui){this.multiplayerGui = multiplayerGui;}
+
+    public void saveGame(int time, GameMod gameMod){
+        try {
+            System.out.println("Chiamo SaveGame di playerSweeper");
+            playerSweeper.saveGame(time,gameMod);
+        } catch (RemoteException e) {
+            System.out.println("Error saving game");
+        }
+    }
 
     @Override
     public void setGame() throws RemoteException {
@@ -78,6 +95,24 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
     public void gameStarted() throws RemoteException {
 
     }
+
+    public void sendLose(){
+        try {
+            playerSweeper.sendLose();
+        } catch (RemoteException e) {
+            System.out.println("Error sending lose report");
+        }
+    }
+
+    public void getScores(GameMod gameMod){
+        try {
+            playerSweeper.getScores(gameMod);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     /**
      * metodo che fa partire il timer della partita multigiocatore
@@ -91,7 +126,29 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
 
     @Override
     public void sendInterference() throws RemoteException {
+        playerSweeper.sendInterference();
+    }
 
+    @Override
+    public void getInterference(Interferences interference) throws RemoteException{
+        multiplayerGui.showInterference(interference);
+    }
+
+    @Override
+    public void getLose() throws RemoteException {
+        multiplayerGui.showOtherLose();
+        System.out.println("Laltro ha abbandonato");
+    }
+
+    @Override
+    public void getSurrended() throws RemoteException {
+        multiplayerGui.showSurrender();
+    }
+
+    @Override
+    public void getResultSet(List<String> names, List<Integer> times) throws RemoteException {
+        this.scoreNames = names;
+        this.scoreTimes = times;
     }
 
 
@@ -115,4 +172,20 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
     }
 
     public PlayerSweeperInterface getPlayerSweeper(){return playerSweeper;}
+
+    public void sendSurrender() {
+        try {
+            playerSweeper.surrender();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<String> getScoreNames() {
+        return scoreNames;
+    }
+
+    public List<Integer> getScoreTimes() {
+        return scoreTimes;
+    }
 }

@@ -1,5 +1,8 @@
 package client.GUI.gameGui;
 
+import api.GameMod;
+import client.GUI.animations.FadeAnimation;
+import client.clientConnection.ClientSweeper;
 import client.game.Btn;
 import client.GUI.MinesweeperLauncher;
 import client.GUI.animations.ScaleAnimation;
@@ -24,14 +27,17 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 
 
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import static java.lang.Thread.sleep;
 
@@ -44,23 +50,46 @@ public class SinglePlayerGui implements GameInterface {
 
     private Pane root;
     private ToolBar toolBar;
-    private Label timerLabel;
-    private double xOffset, yOffset;
-    private Btn[][] buttons;
-    private int lines,columns, numberOfBombs;
-    private int buttonClicked = 0;
 
-    public SinglePlayerGui(int lines, int columns, int numberOfBombs){
+    private Label timerLabel;
+
+    private double xOffset, yOffset;
+    private Grid grid;
+    private Thread timerThread;
+
+    private Btn[][] buttons;
+
+    private Button homeButton;
+
+    private HashMap<Integer,Color> buttonColorMap;
+    private Themes themes;
+    private int lines,columns, numberOfBombs;
+    private GameMod gameMod;
+
+    private int buttonClicked = 0;
+    public SinglePlayerGui(int lines, int columns, int numberOfBombs, GameMod gameMod){
         this.root = new Pane();
         this.lines = lines;
         this.columns = columns;
         this.numberOfBombs = numberOfBombs;
         this.WIDTH = columns * 25;
         this.HEIGHT = lines * 25;
-        Grid grid = new Grid(lines,columns,numberOfBombs, this);
+        this.grid = new Grid(lines,columns,numberOfBombs, this);
         this.buttons = grid.getButtons();
+        this.gameMod = gameMod;
+        initializeButtonColorMap();
     }
-
+    private void initializeButtonColorMap() {
+        buttonColorMap = new HashMap<>();
+        buttonColorMap.put(1,Color.RED);
+        buttonColorMap.put(2,Color.GREEN);
+        buttonColorMap.put(3,Color.BLUE);
+        buttonColorMap.put(4,Color.BLACK);
+        buttonColorMap.put(5,Color.VIOLET);
+        buttonColorMap.put(6,Color.YELLOW);
+        buttonColorMap.put(7,Color.PINK);
+        buttonColorMap.put(8,Color.TOMATO);
+    }
 
     /**
      * metodo che crea il Pane principale della partita, e viene richiamato nel metodo CreateGameGui, per poi passarlo nella
@@ -90,18 +119,40 @@ public class SinglePlayerGui implements GameInterface {
     /**
      * metodo che aggiunge i bottoni della toolbar
      */
-    private void addToolbarButtons() {
-        toolBar.getItems().addAll(homeButton(),addDivisorPane(),addTimer());
+    public void addToolbarButtons() {
+        toolBar.getItems().addAll(homeButton(),addDivisorPane(),restartButton(),addDivisorPane(),addTimer());
     }
 
-    private Pane addDivisorPane() {
+
+    private Button restartButton() {
+    Button restartButton = new Button();
+    restartButton.setPadding(new Insets(0,0,0,0));
+    restartButton.setGraphic(createImageView("../resources/restart.png"));
+    restartButton.setBackground(Background.EMPTY);
+    restartButton.setCursor(Cursor.HAND);
+    restartButton.setOnAction(e -> restart());
+    restartButton.setOnMouseEntered(e -> new ScaleAnimation(restartButton,1.5,1.5, Duration.millis(500)).playAnimation(false));
+    restartButton.setOnMouseExited(e -> new ScaleAnimation(restartButton,1,1, Duration.millis(500)).playAnimation(false));
+    restartButton.setPrefSize(25,25);
+    return  restartButton;
+    }
+
+    private void restart() {
+        try {
+            createGameGui(lines,columns,numberOfBombs,gameMod);
+        } catch (InterruptedException | UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            System.out.println("ERROR RESTARTING");
+        }
+    }
+
+    public Pane addDivisorPane() {
         Pane divisor = new Pane();
-        divisor.setPrefWidth(200);
+        divisor.setPrefWidth(WIDTH/3);
         divisor.setPrefHeight(30);
         return divisor;
     }
 
-    private Label addTimer() {
+    public Label addTimer() {
         timerLabel = new Label();
         timerLabel.setFont(Font.font("AR JULIAN", 13));
         timerLabel.setEffect(new DropShadow());
@@ -110,12 +161,12 @@ public class SinglePlayerGui implements GameInterface {
     }
 
     public void startTimer() {
-        Thread timerThread = new Thread(new Timer());
+        timerThread = new Thread(new Timer());
         timerThread.start();
     }
 
-    private Button homeButton() {
-        Button homeButton = new Button();
+    public Button homeButton() {
+        homeButton = new Button();
         homeButton.setPadding(new Insets(0,0,0,0));
         homeButton.setGraphic(createImageView("../resources/Home.png"));
         homeButton.setBackground(Background.EMPTY);
@@ -127,10 +178,14 @@ public class SinglePlayerGui implements GameInterface {
         return homeButton;
     }
 
+    public Button getHomeButton() {
+        return homeButton;
+    }
+
     /**
      * metodo che ritorna al menu principale del gioco
      */
-    private void backToLauncher() {
+    public void backToLauncher() {
         Platform.runLater(()->{
             try {
                 Parent window = FXMLLoader.load(getClass().getResource("../fxml/launcher.fxml"));
@@ -200,7 +255,6 @@ public class SinglePlayerGui implements GameInterface {
 
     }
 
-
     /**
      * metodo che crea la finestra di gioco
      * @param lines
@@ -210,8 +264,8 @@ public class SinglePlayerGui implements GameInterface {
      * @throws LineUnavailableException
      * @throws IOException
      */
-    public static void createGameGui(int lines, int columns,int numberOfBombs) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
-        SinglePlayerGui nextView = new SinglePlayerGui(lines,columns,numberOfBombs);
+    public static void createGameGui(int lines, int columns,int numberOfBombs,GameMod gameMod) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
+        SinglePlayerGui nextView = new SinglePlayerGui(lines,columns,numberOfBombs,gameMod);
         Parent window = nextView.createContent();
         Platform.runLater(()->{
             Stage stage = MinesweeperLauncher.getPrimaryStage();
@@ -224,6 +278,8 @@ public class SinglePlayerGui implements GameInterface {
     public Parent getRoot(){
         return root;
     }
+
+
     /**
      * Esegue il refresh dello schremo in maniera grafica, metodo di gameInterface.
      */
@@ -232,10 +288,16 @@ public class SinglePlayerGui implements GameInterface {
         buttonClicked = 0;
         for(int i = 0 ; i < lines ; i++){
             for(int j = 0; j<columns;j++){
+                buttons[i][j].setFont(new Font("AR JULIAN", 13));
+                setButtonColor(i,j);
                 refreshFlags(i,j);
                 refreshClicked(i,j);
             }
         }
+    }
+
+    private void setButtonColor(int i , int j) {
+               buttons[i][j].setTextFill(buttonColorMap.get(buttons[i][j].getNearBombs()));
     }
 
     /**
@@ -255,7 +317,6 @@ public class SinglePlayerGui implements GameInterface {
             }
         }
     }
-
     /**
      * metodo che fa refresh dello stato delle bandiere, simile a refresh
      */
@@ -271,15 +332,100 @@ public class SinglePlayerGui implements GameInterface {
      * delle bombe
      */
     @Override
-    public void lose() {
+    public void lose(int i , int j) {
         showBombs();
         try {
-            createGameGui(lines,columns,numberOfBombs);
+            createGameGui(lines,columns,numberOfBombs,gameMod);
         } catch (InterruptedException | UnsupportedAudioFileException | LineUnavailableException | IOException e) {
            System.out.println("Error creating new Scene");
         }
     }
 
+    /**
+     * metodo che termina la partita e mostra la schermata di vittoria
+     */
+    @Override
+    public void win() {
+        startRemoveAnimation();
+        startWinAnimation();
+        addEndButtons();
+        timerThread.interrupt();
+    }
+
+    private void addEndButtons() {
+        Button saveGame = new Button();
+        Button restart = new Button();
+        saveGame.setGraphic(createImageView("saveGame.png"));
+        restart.setGraphic(createImageView("restartGame.png"));
+        saveGame.setPadding(new Insets(0,0,0,0));
+        saveGame.setBackground(Background.EMPTY);
+        saveGame.setCursor(Cursor.HAND);
+        restart.setPadding(new Insets(0,0,0,0));
+        restart.setBackground(Background.EMPTY);
+        restart.setCursor(Cursor.HAND);
+        saveGame.setLayoutX(getWIDTH()/3 - getWIDTH()/4);
+        saveGame.setLayoutY(getHEIGHT()-getHEIGHT()/7);
+        restart.setLayoutX(getWIDTH()*2/3- getWIDTH()/11);
+        restart.setLayoutY(getHEIGHT()-getHEIGHT()/7);
+
+        saveGame.setOnAction(e -> saveGame());
+        restart.setOnAction(e -> restart());
+        root.getChildren().addAll(saveGame,restart);
+    }
+
+    private void saveGame() {
+        System.out.println("Chiamo savGame da multiGui");
+        if(ClientSweeper.getInstance() != null) {
+            System.out.println("Entro nell' if");
+            if (ClientSweeper.getInstance().isLogged()) {
+                System.out.println("CIAONE");
+                ClientSweeper.getInstance().saveGame(Integer.parseInt(timerLabel.getText()), gameMod);
+            }
+        }
+        else{
+            Stage login = new Stage();
+            Platform.runLater(() -> {
+                Parent window = null;
+                try {
+                    window = FXMLLoader.load(getClass().getResource("../fxml/login.fxml"));
+                } catch (IOException e) {
+                }
+                login.setScene(new Scene(window, 350, 197));
+                login.centerOnScreen();
+                login.setOnCloseRequest(e -> System.exit(0));
+                login.initStyle(StageStyle.UNDECORATED);
+                login.show();
+            });
+        }
+
+    }
+
+    private void startWinAnimation() {
+        Label winLabel = new Label("YOU WIN");
+        winLabel.setFont(new Font("AR JULIAN", 25));
+        winLabel.setTextFill(Color.WHITESMOKE);
+        winLabel.setLayoutX(getWIDTH()-getWIDTH()/2 - (getWIDTH()/5));
+        winLabel.setLayoutY(getHEIGHT()-getHEIGHT()/2);
+        ScaleAnimation big = new ScaleAnimation(winLabel,2,2,Duration.millis(1000));
+        ScaleAnimation small = new ScaleAnimation(winLabel,1,1,Duration.millis(1000));
+        big.getScaleTransition().setOnFinished(e -> small.playAnimation(false));
+        small.getScaleTransition().setOnFinished(e -> big.playAnimation(false));
+        big.playAnimation(false);
+        root.getChildren().add(winLabel);
+    }
+
+    /**
+     * animazione che lancia la vittoria della partita
+     */
+    private void startRemoveAnimation() {
+        for(int i = 0 ; i< lines ; i++){
+            for(int j = 0 ; j <columns ; j++){
+                new ScaleAnimation(buttons[i][j], 2,2,Duration.millis(500)).playAnimation(true);
+                new FadeAnimation(buttons[i][j], 1,0,Duration.millis(1000)).playAnimation();
+            }
+        }
+
+    }
 
     /**
      * metodo che mostra le bombe una volta terminata la partita una perdita
@@ -298,6 +444,7 @@ public class SinglePlayerGui implements GameInterface {
 
     }
 
+    // METODI SET E GET CHE SERVONO ALLA CLASSE MULTIPLAYER GUI PER POTER OPERARE
     public void setHEIGHT(int HEIGHT) {
         this.HEIGHT = HEIGHT;
     }
@@ -311,6 +458,7 @@ public class SinglePlayerGui implements GameInterface {
         this.WIDTH = WIDTH;
     }
 
+
     public int getWIDTH(){
         return WIDTH;
     }
@@ -318,33 +466,53 @@ public class SinglePlayerGui implements GameInterface {
     public int getButtonClicked() {
         return buttonClicked;
     }
+
     public void setButtonClicked(int buttonClicked){ this.buttonClicked = buttonClicked;}
 
     public int getLines(){return lines;}
     public int getColumns(){return columns;}
+
     public int getNumberOfBombs(){return numberOfBombs;}
+    public Btn[][] getBtn() {return buttons;}
+
+    public ToolBar getToolBar(){return toolBar;}
+    public Label getTimerLabel() {
+        return timerLabel;
+    }
+
+    public GameMod getGameMod() {
+        return gameMod;
+    }
 
 
-
-
-
+    // CLASSE CHE IMPLEMENTA IL TIMER DI GIOCO; VIENE LANCIATO QUANDO INIZIA LA PARTITA , METOODO SETTIME CHE AGGIORNA LO STATO
+    // DELL' ETICHETTA TIMERLABEL
 
     class Timer implements Runnable {
         private int time = 0;
-        private SinglePlayerGui singlePlayerGui;
+        private boolean stopped;
 
         @Override
         public void run() {
 
             while (true){
-                time++;
-                setTime();
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    System.out.println("ERROR SLEEPING TIMER");
+                if(!stopped){
+                    time++;
+                    setTime();
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        stop();
+                    }
+
                 }
+                else
+                    break;
             }
+        }
+
+        private void stop() {
+            stopped = true;
         }
 
         public void setTime(){

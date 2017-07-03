@@ -249,7 +249,7 @@
     <view id="87" parent="2" name="XTRADB_RSEG">
       <System>1</System>
     </view>
-    <table id="88" parent="9" name="player">
+    <table id="88" parent="9" name="games">
       <Comment>Identifica il giocatore</Comment>
     </table>
     <column id="89" parent="10" name="PLUGIN_NAME">
@@ -3947,12 +3947,16 @@
       <DataType>varchar(30)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="871" parent="88" name="password">
+    <column id="871" parent="88" name="time">
       <Position>3</Position>
-      <DataType>varchar(30)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="872" parent="88" name="PRIMARY">
+    <column id="872" parent="88" name="gamemod">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <key id="873" parent="88" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_player</ColNames>
       <Primary>1</Primary>

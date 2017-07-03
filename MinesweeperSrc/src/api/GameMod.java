@@ -1,10 +1,21 @@
 package api;
 
+import java.util.HashMap;
+
 /**
- * @author Andrea
  * @author Luca
  */
 public enum GameMod {
-    EASY,MEDIUM,HARD
+    EASY("EASY"),MEDIUM("MEDIUM"),HARD("HARD");
 
+    private String code;
+
+    GameMod(String s){
+        code = s ;
+    }
+
+    @Override
+    public String toString() {
+        return code;
+    }
 }

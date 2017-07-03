@@ -38,7 +38,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button id="starsButton" layoutX="33.0" mnemonicParsing="false" onMouseEntered="#zoomIn" onMouseExited="#zoomOut" prefHeight="25.0" prefWidth="24.0" stylesheets="@../styleSheet/graphicStyle.css">
+                        <Button id="starsButton" fx:id="starbutton" layoutX="33.0" mnemonicParsing="false" onAction="#showScoreScreen" onMouseEntered="#zoomIn" onMouseExited="#zoomOut" prefHeight="25.0" prefWidth="24.0" stylesheets="@../styleSheet/graphicStyle.css">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

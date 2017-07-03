@@ -14,10 +14,11 @@ public class Grid {
     private int lines, columns;
     private Btn[][] buttons;
     private int numberOfBombs;
-    int currentBombs = 0;
+    private int currentBombs = 0;
+
+    private int countClicked=0;
 
     private GameInterface gameInterface;
-
     public Grid(int lines, int columns, int numberOfBombs, GameInterface gameInterface){
         this.gameInterface = gameInterface;
         this.lines = lines;
@@ -32,6 +33,13 @@ public class Grid {
         return lines;
     }
 
+    public int getCountClicked() {
+        return countClicked;
+    }
+    public void addClicked(int count){
+        this.countClicked += count;
+    }
+
     public int getColumns() {
         return columns;
     }
@@ -44,6 +52,10 @@ public class Grid {
         return gameInterface;
     }
 
+    public int getNumberOfBombs() {
+        return numberOfBombs;
+    }
+
     /**
      * inizializa la griglia di bottoni, aggiungendo ad ognuno un proprio Handler
      */
@@ -52,7 +64,7 @@ public class Grid {
         for(int i = 0; i<lines;i++){
             for(int j = 0 ; j< columns; j++){
                 buttons[i][j] = new Btn(btnCounter, this);
-                buttons[i][j].setOnAction(new ButtonHandler(i,j, buttons, lines,columns));
+                buttons[i][j].setOnAction(new ButtonHandler(i,j, buttons, lines,columns,numberOfBombs));
                 buttons[i][j].setOnMouseClicked(e -> {
                     Btn button = (Btn) e.getSource();
                     if(e.getButton().equals(MouseButton.SECONDARY)) {

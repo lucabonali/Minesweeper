@@ -20,13 +20,10 @@ import java.util.List;
  * @author Luca
  */
 public class ServerSweeper extends UnicastRemoteObject implements ServerSweeperInterface {
-    private ConnectionDB connectionDB;
-    private static final String QUERY_LOGIN = "";
     static List<Game> gameList;
 
 
     protected ServerSweeper() throws RemoteException {
-        //connectionDB = new ConnectionDB();
         gameList = new ArrayList<>();
     }
 
@@ -39,15 +36,15 @@ public class ServerSweeper extends UnicastRemoteObject implements ServerSweeperI
      * @throws RemoteException
      */
     @Override
-    public synchronized PlayerSweeperInterface login(String username, String password) throws RemoteException {
+    public synchronized PlayerSweeperInterface login(String username, String password, ClientSweeperInterface clientSweeperInterface) throws RemoteException {
         if(MainServer.playersMap.get(username) == null) {
             MainServer.playersMap.put(username, password);
             System.out.println("Name : " + username + " Password : " + password);
-            return new PlayerSweeper(username,password);
+            return new PlayerSweeper(username,password,clientSweeperInterface);
         }
         else{
             MainServer.playersMap.put(username,password);
-            return new PlayerSweeper(username,password);
+            return new PlayerSweeper(username,password,clientSweeperInterface);
         }
 
     }

@@ -1,6 +1,8 @@
 package server;
 
 import api.ClientSweeperInterface;
+import api.GameMod;
+import api.PlayerSweeperInterface;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -14,20 +16,39 @@ import static java.lang.Thread.sleep;
  * @author Luca
  */
 public class Game {
-    private int gameMod;
+    private GameMod gameMod;
     private boolean started,isFull,ended;
     private List<ClientSweeperInterface> players;
 
-    public Game(){
+    public Game(GameMod gameMod){
+        this.gameMod = gameMod;
         players = new ArrayList<>();
+    }
+
+    public GameMod getGameMod() {
+        return gameMod;
     }
 
     public void addPlayer(ClientSweeperInterface clientSweeperInterface){
         if(players.size()<2) {
             players.add(clientSweeperInterface);
+            System.out.println("Aggiungo un giocatore alla partita: " + players.size());
             if(players.size() == 2)
                 isFull = true;
         }
+    }
+
+    /**
+     * metodo chiamato dalla classe PlayerSweeper che restituisce l' altro giocatore connesso alla partita
+     * @param clientSweeperInterface
+     * @return
+     */
+    public ClientSweeperInterface getOtherPlayer(ClientSweeperInterface clientSweeperInterface){
+        for(ClientSweeperInterface clientSweeper : players){
+            if(clientSweeper != clientSweeperInterface)
+                return clientSweeper;
+        }
+        return null;
     }
 
     public void setStarted(boolean started) {
@@ -70,5 +91,17 @@ public class Game {
 
     public void endGame(){
         ended = true;
+    }
+
+    public void playerSurrended(ClientSweeperInterface clientSweeperInterface){
+        for(ClientSweeperInterface c : players){
+            if(c == clientSweeperInterface){
+                try {
+                    c.getLose();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="232.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.GUI.controllers.ScoreController">
+    <children>
+        <Pane prefHeight="232.0" prefWidth="413.0">
+            <children>
+                <ImageView fitHeight="264.0" fitWidth="418.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resources/sfondogriglia.jpg" />
+                    </image>
+                </ImageView>
+            <Button id="homeButton" fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="23.0" prefWidth="23.0" stylesheets="@../styleSheet/graphicStyle.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <HBox layoutX="27.0" layoutY="40.0" prefHeight="156.0" prefWidth="360.0">
+               <children>
+                  <VBox fx:id="easyBox" prefHeight="156.0" prefWidth="120.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="EASY" textFill="WHITE">
+                           <font>
+                              <Font name="AR JULIAN" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="mediumBox" prefHeight="156.0" prefWidth="120.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="MEDIUM" textFill="WHITE">
+                           <font>
+                              <Font name="AR JULIAN" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="hardBox" prefHeight="156.0" prefWidth="120.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="122.0" text="HARD" textFill="WHITE">
+                           <font>
+                              <Font name="AR JULIAN" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

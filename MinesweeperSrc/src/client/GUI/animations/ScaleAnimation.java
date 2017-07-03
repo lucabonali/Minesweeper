@@ -8,7 +8,7 @@ import javafx.util.Duration;
 /**
  * @author Luca
  */
-public class ScaleAnimation {
+public class ScaleAnimation implements SweeperAnimation {
     private Node node;
 
     private ScaleTransition scaleTransition;
@@ -38,6 +38,7 @@ public class ScaleAnimation {
     /**
      * fa partire la transizione quando richiamato
      */
+
     public void playAnimation(boolean back){
 
         scaleTransition.play();
@@ -52,5 +53,8 @@ public class ScaleAnimation {
     }
 
 
+    @Override
+    public void playAnimation() {
 
+    }
 }

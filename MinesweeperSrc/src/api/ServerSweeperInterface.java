@@ -16,7 +16,7 @@ public interface ServerSweeperInterface extends Remote {
      * @return
      * @throws RemoteException
      */
-    PlayerSweeperInterface login(String username, String password) throws RemoteException;
+    PlayerSweeperInterface login(String username, String password, ClientSweeperInterface clientSweeperInterface) throws RemoteException;
 
 
 

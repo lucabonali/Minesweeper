@@ -10,7 +10,9 @@ public interface GameInterface {
 
     void refreshScreen();
 
-    void lose();
+    void lose(int i , int j);
+
+    void win();
 
 
 }

@@ -2,6 +2,7 @@ package client.game;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.Initializable;
 
 
 /**
@@ -9,15 +10,17 @@ import javafx.event.EventHandler;
  * @author Luca
  */
 public class ButtonHandler implements EventHandler<ActionEvent> {
-    private int l, c, lMax, cMax;
+    private int l, c, lMax, cMax, numberOfBombs, notBombButtons, countClicked=0;
     private Btn[][] buttons;
 
-    public ButtonHandler(int l, int c, Btn[][] buttons, int lMax, int cMax){
+    public ButtonHandler(int l, int c, Btn[][] buttons, int lMax, int cMax, int numberOfBombs){
         this.l = l;
         this.c = c;
         this.lMax = lMax;
         this.cMax = cMax;
         this.buttons = buttons;
+        this.numberOfBombs = numberOfBombs;
+        this.notBombButtons = lMax*cMax - numberOfBombs;
     }
 
     /**
@@ -32,6 +35,9 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
         else if(!checkFlag(l,c)){
             clickButton(l,c);
             buttons[l][c].getGrid().getGameInterface().refreshScreen();
+            if(hasWin(l,c)){
+                buttons[l][c].getGrid().getGameInterface().win();
+            }
 
         }
     }
@@ -97,7 +103,24 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
      * chiamato quando il giocatore tocca una bomba, la partita finisce
      */
     private void lose(int l , int c) {
-        buttons[l][c].getGrid().getGameInterface().lose();
+        buttons[l][c].getGrid().getGameInterface().lose(l,c);
+    }
+
+    private boolean hasWin(int l, int c){
+        countClicked = 0;
+        for(int i = 0 ; i< lMax ; i++){
+            for(int j = 0 ; j< cMax; j++){
+                if(buttons[i][j].isClicked())
+                    countClicked++;
+
+            }
+        }
+        if(countClicked == notBombButtons)
+            return true;
+        else{
+            countClicked = 0 ;
+            return false;
+        }
     }
 
 

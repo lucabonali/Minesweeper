@@ -37,7 +37,7 @@ import java.util.ResourceBundle;
  * @author Luca
  */
 public class LauncherController implements Initializable {
-    static final int EASY_BOMBS = 12;
+    static final int EASY_BOMBS = 3;
     static final int MEDIUM_BOMBS = 30;
     static final int HARD_BOMBS = 70;
     static final int EASY_LINES_COLUMNS = 9;
@@ -45,6 +45,8 @@ public class LauncherController implements Initializable {
     static final int HARD_LINES = 15;
     static final int HARD_COLUMNS = 30;
 
+    @FXML
+    public Button starbutton;
     @FXML
     private Button loginButton;
     @FXML
@@ -66,7 +68,8 @@ public class LauncherController implements Initializable {
     private FadeAnimation fadeIn,fadeOut;
     private ScaleAnimation big,small;
     private int lines, columns, numberOfBombs;
-    private Stage login;
+
+    private GameMod gameMod = GameMod.EASY;
 
     /**
      * metodo che chiude la finestra quando viene premuto il pulsante di chiusura
@@ -86,7 +89,8 @@ public class LauncherController implements Initializable {
      */
     public void startGame(ActionEvent actionEvent) {
         try {
-            SinglePlayerGui.createGameGui(lines,columns, numberOfBombs);
+            SinglePlayerGui.createGameGui(lines,columns, numberOfBombs,gameMod);
+            System.out.println(" Liene "+lines+"COLonne "+columns+" bombe "+numberOfBombs);
         } catch (InterruptedException | UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
@@ -109,7 +113,7 @@ public class LauncherController implements Initializable {
                     e.printStackTrace();
                     System.out.println("ERROR CREATING MULTIPLAYER GAME");
                 }
-            MultiplayerGui.createGameGui(lines, columns, numberOfBombs);
+            MultiplayerGui.createGameGui(lines, columns, numberOfBombs,gameMod);
         }
         else
             loginButton.fire();
@@ -122,9 +126,9 @@ public class LauncherController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lines = 9;
-        columns = 9;
-        numberOfBombs = 15;
+        lines = EASY_LINES_COLUMNS;
+        columns = EASY_LINES_COLUMNS;
+        numberOfBombs = EASY_BOMBS;
         setCursor();
         initializeFadeAnimation();
         initializeScaleAnimation();
@@ -190,6 +194,7 @@ public class LauncherController implements Initializable {
         lines = EASY_LINES_COLUMNS;
         columns = EASY_LINES_COLUMNS;
         numberOfBombs = EASY_BOMBS;
+        gameMod = GameMod.EASY;
         hideDifficulties();
     }
 
@@ -197,6 +202,7 @@ public class LauncherController implements Initializable {
         lines = MEDIUM_LINES_COLUMNS;
         columns = MEDIUM_LINES_COLUMNS;
         numberOfBombs = MEDIUM_BOMBS;
+        gameMod = GameMod.MEDIUM;
         hideDifficulties();
     }
 
@@ -204,6 +210,7 @@ public class LauncherController implements Initializable {
         lines = HARD_LINES;
         columns = HARD_COLUMNS;
         numberOfBombs = HARD_BOMBS;
+        gameMod = GameMod.HARD;
         hideDifficulties();
     }
 
@@ -222,7 +229,7 @@ public class LauncherController implements Initializable {
 
     public void showLogin(ActionEvent actionEvent) {
         if(!isLogged) {
-            login = new Stage();
+            Stage login = new Stage();
             Platform.runLater(() -> {
                 Parent window = null;
                 try {
@@ -235,6 +242,28 @@ public class LauncherController implements Initializable {
                 login.initStyle(StageStyle.UNDECORATED);
                 login.show();
             });
+        }
+    }
+
+    public void showScoreScreen(ActionEvent actionEvent) {
+        if (isLogged) {
+            Stage scores = new Stage();
+            Platform.runLater(() -> {
+                Parent scoreScene = null;
+                try {
+                    scoreScene = FXMLLoader.load(getClass().getResource("../fxml/scores.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                scores.setScene(new Scene(scoreScene, 413, 232));
+                scores.centerOnScreen();
+                scores.setOnCloseRequest(e -> System.exit(0));
+                scores.initStyle(StageStyle.UNDECORATED);
+                scores.show();
+            });
+        }
+        else{
+            loginButton.fire();
         }
     }
 

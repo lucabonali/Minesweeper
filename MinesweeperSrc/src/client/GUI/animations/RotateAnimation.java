@@ -8,7 +8,7 @@ import javafx.util.Duration;
 /**
  * @author Luca
  */
-public class RotateAnimation {
+public class RotateAnimation implements SweeperAnimation {
     private Node node;
 
     private RotateTransition rotateTransition;

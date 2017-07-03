@@ -7,7 +7,7 @@ import javafx.util.Duration;
 /**
  * @author Luca
  */
-public class FadeAnimation {
+public class FadeAnimation implements SweeperAnimation {
     private Node node;
 
     private FadeTransition fadeTransition;
