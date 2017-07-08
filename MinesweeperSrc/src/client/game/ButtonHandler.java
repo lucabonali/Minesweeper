@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Classe che modella il comportamento del clic che un bottone deve avere, solamente il modello funzionale, staccato dalla grafica
@@ -12,6 +15,7 @@ import javafx.fxml.Initializable;
 public class ButtonHandler implements EventHandler<ActionEvent> {
     private int l, c, lMax, cMax, numberOfBombs, notBombButtons, countClicked=0;
     private Btn[][] buttons;
+    private List<NearButtons> nearButtonsList;
 
     public ButtonHandler(int l, int c, Btn[][] buttons, int lMax, int cMax, int numberOfBombs){
         this.l = l;
@@ -21,6 +25,19 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
         this.buttons = buttons;
         this.numberOfBombs = numberOfBombs;
         this.notBombButtons = lMax*cMax - numberOfBombs;
+        initializeNearButtonList();
+    }
+
+    private void initializeNearButtonList() {
+        nearButtonsList = new ArrayList<>();
+        nearButtonsList.add(new NearButtons(l-1,c-1));
+        nearButtonsList.add(new NearButtons(l-1,c));
+        nearButtonsList.add(new NearButtons(l-1,c+1));
+        nearButtonsList.add(new NearButtons(l,c-1));
+        nearButtonsList.add(new NearButtons(l,c+1));
+        nearButtonsList.add(new NearButtons(l+1,c-1));
+        nearButtonsList.add(new NearButtons(l+1,c));
+        nearButtonsList.add(new NearButtons(l+1,c+1));
     }
 
     /**
@@ -30,8 +47,10 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
      */
     @Override
     public void handle(ActionEvent event) {
-        if(buttons[l][c].isBomb() && !checkFlag(l,c))
-            lose(l,c);
+        if(buttons[l][c].isBomb() && !checkFlag(l,c)) {
+            lose(l, c);
+            return;
+        }
         else if(!checkFlag(l,c)){
             clickButton(l,c);
             buttons[l][c].getGrid().getGameInterface().refreshScreen();
@@ -52,24 +71,16 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
         buttons[l][c].setClicked(true);
         if(buttons[l][c].getNearBombs() == 0)
             openGrid(l,c);
-
     }
 
     /**
      * metodo richiamato quando viene premuto un pulsante che ha 0 bombe vicine, che apre ricorsivamente tutti i pulsanti
-     * intorno a lui
+     * intorno a lui, chiamando
      * @param l
      * @param c
      */
     private void openGrid(int l , int c) {
-        checkNullThenClick(l-1,c-1);
-        checkNullThenClick(l-1,c);
-        checkNullThenClick(l-1,c+1);
-        checkNullThenClick(l,c-1);
-        checkNullThenClick(l,c+1);
-        checkNullThenClick(l+1,c-1);
-        checkNullThenClick(l+1,c);
-        checkNullThenClick(l+1,c+1);
+        nearButtonsList.forEach(nearButton -> checkNullThenClick(nearButton.line,nearButton.column));
     }
 
     /**
@@ -112,7 +123,6 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
             for(int j = 0 ; j< cMax; j++){
                 if(buttons[i][j].isClicked())
                     countClicked++;
-
             }
         }
         if(countClicked == notBombButtons)
@@ -120,6 +130,16 @@ public class ButtonHandler implements EventHandler<ActionEvent> {
         else{
             countClicked = 0 ;
             return false;
+        }
+    }
+
+
+    class NearButtons{
+        int line, column;
+
+        public NearButtons(int line, int column){
+            this.line = line;
+            this.column = column;
         }
     }
 

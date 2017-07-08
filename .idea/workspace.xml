@@ -2,42 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fe93e37-fc86-469a-b3f4-7408781ba02d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/Razzo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_40_bin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/api/Interferences.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/SweeperAnimation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/scores.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/Themes.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/server/ScoreResult.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/alerts/LoginAlert.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/Themes.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/chargeBar copia.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/GameInterface.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/GameInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/MinesweeperSrc.iml" afterPath="$PROJECT_DIR$/MinesweeperSrc/MinesweeperSrc.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/api/ClientSweeperInterface.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/api/ClientSweeperInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/api/GameMod.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/api/GameMod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/api/PlayerSweeperInterface.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/api/PlayerSweeperInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/api/ServerSweeperInterface.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/api/ServerSweeperInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/RotateAnimation.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/RotateAnimation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/ScaleAnimation.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/ScaleAnimation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/launcher.fxml" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/launcher.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/login.fxml" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/login.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/GameInterface.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/GameInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/SinglePlayerGui.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/SinglePlayerGui.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/Thumbs.db" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/Thumbs.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Btn.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Btn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/ButtonHandler.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/ButtonHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Grid.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Grid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/server/ConnectionDB.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/server/ConnectionDB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/server/Game.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/server/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/server/PlayerSweeper.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/server/PlayerSweeper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MinesweeperSrc/src/server/ServerSweeper.java" afterPath="$PROJECT_DIR$/MinesweeperSrc/src/server/ServerSweeper.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,43 +71,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LauncherController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java">
+      <file leaf-file-name="MultiplayerGui.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3876">
-              <caret line="265" column="31" lean-forward="false" selection-start-line="265" selection-start-column="31" selection-end-line="265" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="406" column="3" lean-forward="false" selection-start-line="406" selection-start-column="3" selection-end-line="414" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2536#2537#0" expanded="false" />
+                <element signature="e#2576#2577#0" expanded="false" />
+                <element signature="e#7150#7151#0" expanded="false" />
+                <element signature="e#7199#7200#0" expanded="false" />
+                <element signature="e#13298#13299#0" expanded="false" />
+                <element signature="e#13386#13387#0" expanded="false" />
+                <element signature="e#13697#13698#0" expanded="false" />
+                <element signature="e#13732#13733#0" expanded="false" />
+                <element signature="e#14527#14528#0" expanded="false" />
+                <element signature="e#14587#14588#0" expanded="false" />
+                <element signature="e#14622#14623#0" expanded="false" />
+                <element signature="e#14693#14694#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JAVA/api" pinned="false" current-in-tab="true">
-        <entry file="uml://JAVA/api">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>api</OriginalElement>
-              <nodes>
-                <node x="197.0" y="456.0">api.ServerSweeperInterface</node>
-                <node x="0.0" y="250.0">api.PlayerSweeperInterface</node>
-                <node x="0.0" y="0.0">api.ClientSweeperInterface</node>
-                <node x="0.0" y="456.0">api.Interferences</node>
-                <node x="334.0" y="0.0">api.GameMod</node>
-              </nodes>
-              <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="1.0" x="311.0" y="76.0" />
-              <SelectedNodes>
-                <node>api.ServerSweeperInterface</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Fields</Category>
-                <Category>Methods</Category>
-                <Category>Constructors</Category>
-                <Category>Inner Classes</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
+      <file leaf-file-name="FadeAnimation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#649#650#0" expanded="false" />
+                <element signature="e#686#687#0" expanded="false" />
+                <element signature="e#720#721#0" expanded="false" />
+                <element signature="e#757#758#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TranslateAnimation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#745#746#0" expanded="false" />
+                <element signature="e#787#788#0" expanded="false" />
+                <element signature="e#821#822#0" expanded="false" />
+                <element signature="e#863#864#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,28 +130,105 @@
       <file leaf-file-name="SinglePlayerGui.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/SinglePlayerGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="384" column="13" lean-forward="false" selection-start-line="384" selection-start-column="13" selection-end-line="384" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="6392">
+              <caret line="420" column="16" lean-forward="false" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="92" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#5825#5826#0" expanded="false" />
+                <element signature="e#5858#5859#0" expanded="false" />
+                <element signature="e#9413#9414#0" expanded="false" />
+                <element signature="e#9440#9441#0" expanded="false" />
+                <element signature="e#15408#15409#0" expanded="false" />
+                <element signature="e#15444#15445#0" expanded="false" />
+                <element signature="e#15474#15475#0" expanded="false" />
+                <element signature="e#15503#15504#0" expanded="false" />
+                <element signature="e#15541#15542#0" expanded="false" />
+                <element signature="e#15575#15576#0" expanded="false" />
+                <element signature="e#15604#15605#0" expanded="false" />
+                <element signature="e#15632#15633#0" expanded="false" />
+                <element signature="e#15669#15670#0" expanded="false" />
+                <element signature="e#15705#15706#0" expanded="false" />
+                <element signature="e#16072#16073#0" expanded="false" />
+                <element signature="e#16105#16106#0" expanded="false" />
+                <element signature="e#16140#16141#0" expanded="false" />
+                <element signature="e#16170#16171#0" expanded="false" />
+                <element signature="e#17018#17019#0" expanded="false" />
+                <element signature="e#17056#17057#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerSweeperInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/api/ServerSweeperInterface.java">
+      <file leaf-file-name="Btn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/Btn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="112" lean-forward="false" selection-start-line="18" selection-start-column="112" selection-end-line="18" selection-end-column="112" />
-              <folding />
+            <state relative-caret-position="731">
+              <caret line="69" column="4" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="76" selection-end-column="5" />
+              <folding>
+                <element signature="e#341#342#0" expanded="false" />
+                <element signature="e#372#373#0" expanded="false" />
+                <element signature="e#405#406#0" expanded="false" />
+                <element signature="e#439#440#0" expanded="false" />
+                <element signature="e#473#474#0" expanded="false" />
+                <element signature="e#505#506#0" expanded="false" />
+                <element signature="e#552#553#0" expanded="false" />
+                <element signature="e#594#595#0" expanded="false" />
+                <element signature="e#628#629#0" expanded="false" />
+                <element signature="e#658#659#0" expanded="false" />
+                <element signature="e#705#706#0" expanded="false" />
+                <element signature="e#743#744#0" expanded="false" />
+                <element signature="e#776#777#0" expanded="false" />
+                <element signature="e#805#806#0" expanded="false" />
+                <element signature="e#850#851#0" expanded="false" />
+                <element signature="e#886#887#0" expanded="false" />
+                <element signature="e#917#918#0" expanded="false" />
+                <element signature="e#944#945#0" expanded="false" />
+                <element signature="e#985#986#0" expanded="false" />
+                <element signature="e#1017#1018#0" expanded="false" />
+                <element signature="e#1046#1047#0" expanded="false" />
+                <element signature="e#1073#1074#0" expanded="false" />
+                <element signature="e#1109#1110#0" expanded="false" />
+                <element signature="e#1141#1142#0" expanded="false" />
+                <element signature="e#1192#1193#0" expanded="false" />
+                <element signature="e#1234#1235#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientSweeper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="181" column="5" lean-forward="false" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+            <state relative-caret-position="374">
+              <caret line="35" column="80" lean-forward="false" selection-start-line="35" selection-start-column="80" selection-end-line="35" selection-end-column="80" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#722#723#0" expanded="false" />
+                <element signature="e#754#755#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="72" column="8" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="80" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#924#925#0" expanded="false" />
+                <element signature="e#980#981#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/GameInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -179,11 +252,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>startG</find>
       <find>btnO</find>
       <find>ho</find>
       <find>logi</find>
-      <find>lose</find>
       <find>mul</find>
       <find>login</find>
       <find>add</find>
@@ -193,9 +264,24 @@
       <find>Lose</find>
       <find>Home</find>
       <find>send</find>
-      <find>win</find>
       <find>lo</find>
       <find>getSc</find>
+      <find>homeButton</find>
+      <find>showOth</find>
+      <find>fillc</find>
+      <find>getButto</find>
+      <find>startBar</find>
+      <find>getBu</find>
+      <find>sendSu</find>
+      <find>timerIn</find>
+      <find>surr</find>
+      <find>closeWin</find>
+      <find>createGame</find>
+      <find>addButt</find>
+      <find>win</find>
+      <find>refresh</find>
+      <find>lose</find>
+      <find>fadeAni</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,8 +295,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/ClientRemote.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/ServerRemote.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/MinesweeperLauncher.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/GameGui.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/api/ClientInterface.java" />
@@ -227,24 +311,17 @@
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/Timer.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/Timer.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/api/Interferences.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/GameInterface.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Grid.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/alerts/endGameAlert.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/game/ButtonHandler.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/Themes.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/Game.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/AnimationType.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/Animation.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/SweeperAnimation.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/RotateAnimation.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/ScaleAnimation.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/login.fxml" />
         <option value="dbtable:/79b0e097/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179/minesweeperdb.player" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java" />
         <option value="dbtable:/79b0e097/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179/minesweeperdb.games" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/launcher.fxml" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ScoreResult.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/api/GameMod.java" />
@@ -254,12 +331,21 @@
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/api/PlayerSweeperInterface.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/ScoreResult.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/api/ClientSweeperInterface.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/PlayerSweeper.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/fxml/scores.fxml" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/PlayerSweeper.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/server/Game.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/game/GameInterface.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Btn.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/game/Grid.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/game/ButtonHandler.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java" />
         <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/SinglePlayerGui.java" />
-        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java" />
+        <option value="$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java" />
       </list>
     </option>
   </component>
@@ -270,10 +356,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="x" value="-7" />
+    <option name="y" value="3" />
+    <option name="width" value="1370" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -336,10 +422,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -364,36 +446,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MinesweeperSrc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styleSheet" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -453,7 +505,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fxml" />
+              <option name="myItemId" value="animations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -476,100 +528,18 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MinesweeperSrc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MinesweeperSrc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clientConnection" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Minesweeper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MinesweeperSrc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Documento Di Progetto" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Documento Di Progetto/Diagrammi" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -1173,7 +1143,12 @@
       <workItem from="1498677022337" duration="9162000" />
       <workItem from="1498755866522" duration="55053000" />
       <workItem from="1499091764245" duration="8000" />
-      <workItem from="1499108318034" duration="10107000" />
+      <workItem from="1499108318034" duration="10163000" />
+      <workItem from="1499148708234" duration="14955000" />
+      <workItem from="1499193964192" duration="16503000" />
+      <workItem from="1499282544099" duration="7850000" />
+      <workItem from="1499321596826" duration="8040000" />
+      <workItem from="1499506485322" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="Primo aggiornamento">
       <created>1494681186665</created>
@@ -1266,7 +1241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498686811476</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="11^ aggiornamento : Classifica e inizioDocumentazione">
+      <created>1499118981154</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1499118981154</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1302,7 +1284,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187859000" />
+    <option name="totallyTimeSpent" value="235268000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1314,38 +1296,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-7" y="3" width="1370" height="772" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.090043925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910978" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.65430266" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61329305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Sequence" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8545994" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2408492" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24002954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08714919" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910978" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1365,7 +1348,8 @@
     <MESSAGE value="9^ aggiornamento : Serverersss" />
     <MESSAGE value="10^ aggiornamento : Inizio Gestione Partita server" />
     <MESSAGE value="11^ aggiornamento : Connessione Con server e inizio partita multiplayer" />
-    <option name="LAST_COMMIT_MESSAGE" value="11^ aggiornamento : Connessione Con server e inizio partita multiplayer" />
+    <MESSAGE value="11^ aggiornamento : Classifica e inizioDocumentazione" />
+    <option name="LAST_COMMIT_MESSAGE" value="11^ aggiornamento : Classifica e inizioDocumentazione" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1386,69 +1370,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/Btn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/client.game">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>client.game</OriginalElement>
-          <nodes>
-            <node x="" y="">client.game.Btn</node>
-            <node x="" y="">client.game.ButtonHandler</node>
-            <node x="" y="">client.game.Grid</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.6472424557752341" x="399.0" y="471.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Inner Classes</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/api/ClientInterface.java" />
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ClientRemote.java" />
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/FromServerSweeper.java" />
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ToClientSweeper.java" />
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/styleSheet/graphicStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/chargeBar copia.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/IconaBomba.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/chargeBar.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/barCharge.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/function/BiConsumer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1470,49 +1391,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/alerts/LoginAlert.java" />
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-652">
-          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/GameInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/alerts/endGameAlert.java" />
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/MinesweeperLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="35" column="102" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/ButtonHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="121" column="19" lean-forward="true" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/Themes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/Themes.java" />
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/AnimationType.java" />
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/Animation.java" />
     <entry file="dbDummy://dbtable:/79b0e097/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179/minesweeperdb.player">
@@ -1527,13 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/ScaleAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/RotateAnimation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1541,45 +1414,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/SweeperAnimation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/MainServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5916">
-          <caret line="380" column="78" lean-forward="false" selection-start-line="380" selection-start-column="78" selection-end-line="380" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1607,21 +1445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ConnectionDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding>
-            <marker date="1499111949889" expanded="true" signature="466:518" ph="INSERT INTO games... " />
-            <marker date="1499111949889" expanded="true" signature="573:607" ph="SELECT name,... " />
-            <marker date="1499111949889" expanded="true" signature="573:616" ph="SELECT name,... " />
-            <marker date="1499111949889" expanded="true" signature="1383:1401" ph="SELECT name,... " />
-            <marker date="1499111949889" expanded="true" signature="1383:1417" ph="SELECT name,... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1637,31 +1460,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="28" column="63" lean-forward="false" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ServerSweeper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="46" column="77" lean-forward="false" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ScoreResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/PlayerSweeper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="122" column="89" lean-forward="false" selection-start-line="122" selection-start-column="89" selection-end-line="122" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1669,26 +1467,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="181" column="5" lean-forward="false" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/79b0e097/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179/minesweeperdb.games">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1697,35 +1485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="84" column="51" lean-forward="false" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/api/ServerSweeperInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="18" column="112" lean-forward="false" selection-start-line="18" selection-start-column="112" selection-end-line="18" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/SinglePlayerGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="384" column="13" lean-forward="false" selection-start-line="384" selection-start-column="13" selection-end-line="384" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3876">
-          <caret line="265" column="31" lean-forward="false" selection-start-line="265" selection-start-column="31" selection-end-line="265" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1735,26 +1498,523 @@
           <ID>JAVA</ID>
           <OriginalElement>api</OriginalElement>
           <nodes>
-            <node x="197.0" y="456.0">api.ServerSweeperInterface</node>
-            <node x="0.0" y="250.0">api.PlayerSweeperInterface</node>
+            <node x="199.0" y="458.0">api.ServerSweeperInterface</node>
+            <node x="0.0" y="251.0">api.PlayerSweeperInterface</node>
             <node x="0.0" y="0.0">api.ClientSweeperInterface</node>
-            <node x="0.0" y="456.0">api.Interferences</node>
-            <node x="334.0" y="0.0">api.GameMod</node>
+            <node x="0.0" y="458.0">api.Interferences</node>
+            <node x="336.0" y="0.0">api.GameMod</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="311.0" y="76.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="311.0" y="297.0" />
           <SelectedNodes>
             <node>api.ServerSweeperInterface</node>
           </SelectedNodes>
           <Categories>
             <Category>Fields</Category>
-            <Category>Methods</Category>
+            <Category>Inner Classes</Category>
             <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/resources/chargeBar.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/server">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>server</OriginalElement>
+          <nodes>
+            <node x="" y="">server.MainServer</node>
+            <node x="" y="">server.ConnectionDB</node>
+            <node x="" y="">server.ServerSweeper</node>
+            <node x="" y="">server.ScoreResult</node>
+            <node x="" y="">server.PlayerSweeper</node>
+            <node x="" y="">server.Game</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6702586206896551" x="500.0" y="438.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/cbb77cb2-6c63-4bb9-9f8f-995d57fb8179.SCHEMA:minesweeperdb">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>cbb77cb2-6c63-4bb9-9f8f-995d57fb8179.SCHEMA:minesweeperdb</OriginalElement>
+          <nodes>
+            <node x="" y="">cbb77cb2-6c63-4bb9-9f8f-995d57fb8179.TABLE:minesweeperdb.games</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="101.0" y="60.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client.clientConnection">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.clientConnection</OriginalElement>
+          <nodes>
+            <node x="" y="">client.clientConnection.ClientSweeper</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7724935732647815" x="392.0" y="379.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ServerSweeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="136" column="4" lean-forward="false" selection-start-line="136" selection-start-column="4" selection-end-line="146" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="109" column="8" lean-forward="true" selection-start-line="109" selection-start-column="8" selection-end-line="116" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/MainServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/PlayerSweeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="116" column="75" lean-forward="false" selection-start-line="116" selection-start-column="75" selection-end-line="116" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ConnectionDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/clientConnection/ClientSweeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/server/ScoreResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/ScaleAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client.game">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.game</OriginalElement>
+          <nodes>
+            <node x="" y="">client.game.Btn</node>
+            <node x="" y="">client.game.GameInterface</node>
+            <node x="" y="">client.game.ButtonHandler</node>
+            <node x="" y="">client.game.Grid</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.3435072142064373" x="813.0" y="711.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client.GUI">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.GUI</OriginalElement>
+          <nodes>
+            <node x="" y="">client.GUI.fxml</node>
+            <node x="" y="">client.GUI.gameGui</node>
+            <node x="" y="">client.GUI.resources</node>
+            <node x="" y="">client.GUI.styleSheet</node>
+            <node x="" y="">client.GUI.MinesweeperLauncher</node>
+            <node x="" y="">client.GUI.animations</node>
+            <node x="" y="">client.GUI.controllers</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="156.0" y="206.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/MinesweeperLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client.GUI.controllers">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.GUI.controllers</OriginalElement>
+          <nodes>
+            <node x="" y="">client.GUI.controllers.LauncherController</node>
+            <node x="" y="">client.GUI.controllers.ScoreController</node>
+            <node x="" y="">client.GUI.controllers.LoginController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.4554819720382634" x="824.0" y="670.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/ButtonHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="92" column="44" lean-forward="true" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LauncherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="77" column="4" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/Btn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="69" column="4" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="76" selection-end-column="5" />
+          <folding>
+            <element signature="e#341#342#0" expanded="false" />
+            <element signature="e#372#373#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#473#474#0" expanded="false" />
+            <element signature="e#505#506#0" expanded="false" />
+            <element signature="e#552#553#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#628#629#0" expanded="false" />
+            <element signature="e#658#659#0" expanded="false" />
+            <element signature="e#705#706#0" expanded="false" />
+            <element signature="e#743#744#0" expanded="false" />
+            <element signature="e#776#777#0" expanded="false" />
+            <element signature="e#805#806#0" expanded="false" />
+            <element signature="e#850#851#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#917#918#0" expanded="false" />
+            <element signature="e#944#945#0" expanded="false" />
+            <element signature="e#985#986#0" expanded="false" />
+            <element signature="e#1017#1018#0" expanded="false" />
+            <element signature="e#1046#1047#0" expanded="false" />
+            <element signature="e#1073#1074#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1141#1142#0" expanded="false" />
+            <element signature="e#1192#1193#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="35" column="80" lean-forward="false" selection-start-line="35" selection-start-column="80" selection-end-line="35" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#754#755#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client.GUI.gameGui">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.GUI.gameGui</OriginalElement>
+          <nodes>
+            <node x="" y="">client.GUI.gameGui.SinglePlayerGui</node>
+            <node x="" y="">client.GUI.gameGui.MultiplayerGui</node>
+            <node x="" y="">client.GUI.gameGui.Themes</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.204155672823219" x="673.0" y="1506.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/game/GameInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/controllers/ScoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="72" column="8" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#924#925#0" expanded="false" />
+            <element signature="e#980#981#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/TranslateAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#745#746#0" expanded="false" />
+            <element signature="e#787#788#0" expanded="false" />
+            <element signature="e#821#822#0" expanded="false" />
+            <element signature="e#863#864#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client.GUI.animations">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.GUI.animations</OriginalElement>
+          <nodes>
+            <node x="500.0" y="124.0">client.GUI.animations.RotateAnimation</node>
+            <node x="730.0" y="124.0">client.GUI.animations.TranslateAnimation</node>
+            <node x="230.0" y="102.0">client.GUI.animations.ScaleAnimation</node>
+            <node x="388.5" y="0.0">client.GUI.animations.SweeperAnimation</node>
+            <node x="0.0" y="124.0">client.GUI.animations.FadeAnimation</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="client.GUI.animations.TranslateAnimation" target="client.GUI.animations.SweeperAnimation">
+              <point x="0.0" y="-71.0" />
+              <point x="835.0" y="72.0" />
+              <point x="548.625" y="72.0" />
+              <point x="68.625" y="26.0" />
+            </edge>
+            <edge source="client.GUI.animations.FadeAnimation" target="client.GUI.animations.SweeperAnimation">
+              <point x="0.0" y="-71.0" />
+              <point x="105.0" y="72.0" />
+              <point x="411.375" y="72.0" />
+              <point x="-68.625" y="26.0" />
+            </edge>
+            <edge source="client.GUI.animations.RotateAnimation" target="client.GUI.animations.SweeperAnimation">
+              <point x="0.0" y="-71.0" />
+              <point x="605.0" y="82.0" />
+              <point x="502.875" y="82.0" />
+              <point x="22.875" y="26.0" />
+            </edge>
+            <edge source="client.GUI.animations.ScaleAnimation" target="client.GUI.animations.SweeperAnimation">
+              <point x="0.0" y="-93.0" />
+              <point x="355.0" y="82.0" />
+              <point x="457.125" y="82.0" />
+              <point x="-22.875" y="26.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.9489583333333333" x="243.0" y="77.0" />
+          <SelectedNodes>
+            <node>client.GUI.animations.FadeAnimation</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/animations/FadeAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#649#650#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#757#758#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/SinglePlayerGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6392">
+          <caret line="420" column="16" lean-forward="false" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5825#5826#0" expanded="false" />
+            <element signature="e#5858#5859#0" expanded="false" />
+            <element signature="e#9413#9414#0" expanded="false" />
+            <element signature="e#9440#9441#0" expanded="false" />
+            <element signature="e#15408#15409#0" expanded="false" />
+            <element signature="e#15444#15445#0" expanded="false" />
+            <element signature="e#15474#15475#0" expanded="false" />
+            <element signature="e#15503#15504#0" expanded="false" />
+            <element signature="e#15541#15542#0" expanded="false" />
+            <element signature="e#15575#15576#0" expanded="false" />
+            <element signature="e#15604#15605#0" expanded="false" />
+            <element signature="e#15632#15633#0" expanded="false" />
+            <element signature="e#15669#15670#0" expanded="false" />
+            <element signature="e#15705#15706#0" expanded="false" />
+            <element signature="e#16072#16073#0" expanded="false" />
+            <element signature="e#16105#16106#0" expanded="false" />
+            <element signature="e#16140#16141#0" expanded="false" />
+            <element signature="e#16170#16171#0" expanded="false" />
+            <element signature="e#17018#17019#0" expanded="false" />
+            <element signature="e#17056#17057#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/client">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client</OriginalElement>
+          <nodes>
+            <node x="" y="">client.GUI.animations.RotateAnimation</node>
+            <node x="" y="">client.GUI.gameGui.SinglePlayerGui.Timer</node>
+            <node x="" y="">client.GUI.gameGui.SinglePlayerGui</node>
+            <node x="" y="">client.GUI.gameGui.MultiplayerGui</node>
+            <node x="" y="">client.GUI.animations.FadeAnimation</node>
+            <node x="" y="">client.GUI.controllers.LoginController</node>
+            <node x="" y="">client.game.Grid</node>
+            <node x="" y="">client.clientConnection.ClientSweeper</node>
+            <node x="" y="">client.game.Btn</node>
+            <node x="" y="">client.GUI.animations.TranslateAnimation</node>
+            <node x="" y="">client.GUI.MinesweeperLauncher</node>
+            <node x="" y="">client.game.GameInterface</node>
+            <node x="" y="">client.GUI.controllers.LauncherController</node>
+            <node x="" y="">client.GUI.animations.ScaleAnimation</node>
+            <node x="" y="">client.GUI.animations.SweeperAnimation</node>
+            <node x="" y="">client.game.ButtonHandler.NearButtons</node>
+            <node x="" y="">client.game.ButtonHandler</node>
+            <node x="" y="">client.GUI.gameGui.MultiplayerGui.InterferenceHandler</node>
+            <node x="" y="">client.GUI.controllers.ScoreController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7984224364592463" x="561.0" y="278.0" />
+          <SelectedNodes />
+          <Categories>
             <Category>Inner Classes</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MinesweeperSrc/src/client/GUI/gameGui/MultiplayerGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="406" column="3" lean-forward="false" selection-start-line="406" selection-start-column="3" selection-end-line="414" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2536#2537#0" expanded="false" />
+            <element signature="e#2576#2577#0" expanded="false" />
+            <element signature="e#7150#7151#0" expanded="false" />
+            <element signature="e#7199#7200#0" expanded="false" />
+            <element signature="e#13298#13299#0" expanded="false" />
+            <element signature="e#13386#13387#0" expanded="false" />
+            <element signature="e#13697#13698#0" expanded="false" />
+            <element signature="e#13732#13733#0" expanded="false" />
+            <element signature="e#14527#14528#0" expanded="false" />
+            <element signature="e#14587#14588#0" expanded="false" />
+            <element signature="e#14622#14623#0" expanded="false" />
+            <element signature="e#14693#14694#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

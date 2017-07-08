@@ -17,7 +17,7 @@ import static java.lang.Thread.sleep;
  */
 public class Game {
     private GameMod gameMod;
-    private boolean started,isFull,ended;
+    private boolean started,isFull;
     private List<ClientSweeperInterface> players;
 
     public Game(GameMod gameMod){
@@ -90,7 +90,8 @@ public class Game {
 
 
     public void endGame(){
-        ended = true;
+        players.clear();
+        System.out.println("Nuova lista = "+ players.size());
     }
 
     public void playerSurrended(ClientSweeperInterface clientSweeperInterface){
@@ -103,5 +104,16 @@ public class Game {
                 }
             }
         }
+    }
+
+    public void removePlayer(ClientSweeperInterface clientSweeper) {
+        players.remove(clientSweeper);
+        try {
+            getOtherPlayer(clientSweeper).getSurrended();
+            System.out.println("Segnalo all' altro che la partita è finita ");
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        endGame();
     }
 }

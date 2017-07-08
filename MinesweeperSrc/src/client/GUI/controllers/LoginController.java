@@ -50,8 +50,6 @@ public class LoginController implements Initializable {
             LauncherController.isLogged = true;
             backToLauncher();
         }
-
-
     }
 
     private boolean checkFields() {

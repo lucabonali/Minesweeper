@@ -56,7 +56,6 @@ public class ScoreController implements Initializable {
     }
 
     private void setScores() {
-        if(ClientSweeper.getInstance() != null){
             ClientSweeper.getInstance().getScores(GameMod.EASY);
             easyNames = ClientSweeper.getInstance().getScoreNames();
             easyTime = ClientSweeper.getInstance().getScoreTimes();
@@ -67,15 +66,8 @@ public class ScoreController implements Initializable {
             hardNames = ClientSweeper.getInstance().getScoreNames();
             hardTime = ClientSweeper.getInstance().getScoreTimes();
             showScores();
-        }
-        else{
-            showLoginScreen();
-        }
     }
 
-    private void showLoginScreen() {
-
-    }
 
     private void showScores() {
         for(int i = 0 ; i < easyNames.size() ; i++){

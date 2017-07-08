@@ -6,24 +6,23 @@ import client.clientConnection.ClientSweeper;
 import client.game.Btn;
 import client.GUI.MinesweeperLauncher;
 import client.GUI.animations.ScaleAnimation;
+import client.game.GameInterface;
 import client.game.Grid;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 
 
@@ -37,7 +36,9 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 
 import static java.lang.Thread.sleep;
 
@@ -46,27 +47,20 @@ import static java.lang.Thread.sleep;
  */
 public class SinglePlayerGui implements GameInterface {
     private int WIDTH, HEIGHT;
-
-
     private Pane root;
     private ToolBar toolBar;
-
     private Label timerLabel;
-
     private double xOffset, yOffset;
     private Grid grid;
     private Thread timerThread;
-
     private Btn[][] buttons;
-
     private Button homeButton;
-
     private HashMap<Integer,Color> buttonColorMap;
-    private Themes themes;
     private int lines,columns, numberOfBombs;
     private GameMod gameMod;
 
     private int buttonClicked = 0;
+
     public SinglePlayerGui(int lines, int columns, int numberOfBombs, GameMod gameMod){
         this.root = new Pane();
         this.lines = lines;
@@ -308,7 +302,8 @@ public class SinglePlayerGui implements GameInterface {
     private void refreshClicked(int i , int j) {
         if(buttons[i][j].isClicked() && !buttons[i][j].isRefreshed()){
             buttons[i][j].setRefreshed(true);
-            buttonClicked++;
+            buttonClicked ++;
+            System.out.println("Bottoni cliccati =  " + buttonClicked);
             buttons[i][j].toFront();
             new ScaleAnimation(buttons[i][j],1.5,1.5, Duration.millis(400)).playAnimation(true);
             buttons[i][j].setOpacity(0.5);
@@ -334,11 +329,16 @@ public class SinglePlayerGui implements GameInterface {
     @Override
     public void lose(int i , int j) {
         showBombs();
-        try {
-            createGameGui(lines,columns,numberOfBombs,gameMod);
-        } catch (InterruptedException | UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-           System.out.println("Error creating new Scene");
+        disableButtons();
+    }
+
+    private void disableButtons() {
+        for(int i = 0 ; i<lines; i++){
+            for(int j = 0; j < columns ; j++){
+                buttons[i][j].setDisable(true);
+            }
         }
+        timerThread.interrupt();
     }
 
     /**
@@ -374,11 +374,8 @@ public class SinglePlayerGui implements GameInterface {
     }
 
     private void saveGame() {
-        System.out.println("Chiamo savGame da multiGui");
         if(ClientSweeper.getInstance() != null) {
-            System.out.println("Entro nell' if");
             if (ClientSweeper.getInstance().isLogged()) {
-                System.out.println("CIAONE");
                 ClientSweeper.getInstance().saveGame(Integer.parseInt(timerLabel.getText()), gameMod);
             }
         }
@@ -417,7 +414,7 @@ public class SinglePlayerGui implements GameInterface {
     /**
      * animazione che lancia la vittoria della partita
      */
-    private void startRemoveAnimation() {
+    public void startRemoveAnimation() {
         for(int i = 0 ; i< lines ; i++){
             for(int j = 0 ; j <columns ; j++){
                 new ScaleAnimation(buttons[i][j], 2,2,Duration.millis(500)).playAnimation(true);
@@ -488,13 +485,15 @@ public class SinglePlayerGui implements GameInterface {
     // CLASSE CHE IMPLEMENTA IL TIMER DI GIOCO; VIENE LANCIATO QUANDO INIZIA LA PARTITA , METOODO SETTIME CHE AGGIORNA LO STATO
     // DELL' ETICHETTA TIMERLABEL
 
-    class Timer implements Runnable {
+    class Timer implements Runnable,Initializable {
         private int time = 0;
         private boolean stopped;
 
         @Override
         public void run() {
-
+            Platform.runLater(() -> {
+                timerLabel.setText(String.valueOf(time));
+            });
             while (true){
                 if(!stopped){
                     time++;
@@ -516,16 +515,23 @@ public class SinglePlayerGui implements GameInterface {
         }
 
         public void setTime(){
-            Platform.runLater(() -> {
-                if(time < 10)
-                    timerLabel.setText("00" + time);
-                if(time > 10 && time< 100)
-                    timerLabel.setText("0" + time);
-                else
-                    timerLabel.setText(""+time);
-            });
+            if(time == 1 )
+                Platform.runLater(() -> {
+                    timerLabel.setText(String.valueOf(Integer.parseInt(timerLabel.getText())));
+                });
+            else {
+                Platform.runLater(() -> {
+                    timerLabel.setText(String.valueOf(Integer.parseInt(timerLabel.getText()) + 1));
+                });
+            }
         }
 
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+            Platform.runLater(() -> {
+                timerLabel.setText(String.valueOf(time));
+            });
+        }
     }
 
 }

@@ -65,6 +65,7 @@ public class PlayerSweeper extends UnicastRemoteObject implements PlayerSweeperI
     public boolean createGame(GameMod gameMod, ClientSweeperInterface clientSweeperInterface) throws RemoteException {
         this.clientSweeper = clientSweeperInterface;
         game = getFreeGame(gameMod);
+        System.out.println("Aggiungo un  Player  alla partita: " + game +" Game mod :"+ game.getGameMod());
         game.addPlayer(clientSweeperInterface);
         if (game.isFull()) {
             game.startGame();
@@ -84,7 +85,7 @@ public class PlayerSweeper extends UnicastRemoteObject implements PlayerSweeperI
     private Game getFreeGame(GameMod gameMod) {
 
         for (Game g : ServerSweeper.gameList) {
-            if (!g.isFull())
+            if (!g.isFull() && g.getGameMod() == gameMod)
                 return g;
         }
         Game gameReturn = new Game(gameMod);
@@ -96,7 +97,7 @@ public class PlayerSweeper extends UnicastRemoteObject implements PlayerSweeperI
 
     @Override
     public void sendInterference() throws RemoteException {
-        int interference = new Random().nextInt(5);
+        int interference = new Random().nextInt(4);
         Interferences interf = interferenceMap.get(interference);
         game.getOtherPlayer(clientSweeper).getInterference(interf);
     }
@@ -108,12 +109,12 @@ public class PlayerSweeper extends UnicastRemoteObject implements PlayerSweeperI
 
     @Override
     public void surrender() throws RemoteException {
-        game.getOtherPlayer(clientSweeper).getSurrended();
+        game.removePlayer(clientSweeper);
     }
 
     @Override
     public void saveGame(int time, GameMod gameMod) throws RemoteException {
-        System.out.println("Chiamo il metodo insert con parametri: "+userName +" "+ time+" " + gameMod);
+        System.out.println("Chiamo il metodo insert con parametri: "+ userName +" "+ time+" " + gameMod);
         connectionDB.insert(userName,time,gameModMap.get(gameMod));
     }
 

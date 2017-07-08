@@ -1,7 +1,5 @@
 package client.game;
 
-import client.GUI.gameGui.GameInterface;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 
 import java.util.Random;
@@ -15,10 +13,11 @@ public class Grid {
     private Btn[][] buttons;
     private int numberOfBombs;
     private int currentBombs = 0;
-
     private int countClicked=0;
 
     private GameInterface gameInterface;
+
+
     public Grid(int lines, int columns, int numberOfBombs, GameInterface gameInterface){
         this.gameInterface = gameInterface;
         this.lines = lines;
@@ -65,19 +64,23 @@ public class Grid {
             for(int j = 0 ; j< columns; j++){
                 buttons[i][j] = new Btn(btnCounter, this);
                 buttons[i][j].setOnAction(new ButtonHandler(i,j, buttons, lines,columns,numberOfBombs));
-                buttons[i][j].setOnMouseClicked(e -> {
-                    Btn button = (Btn) e.getSource();
-                    if(e.getButton().equals(MouseButton.SECONDARY)) {
-                        if(!(button.isFlaged() || button.isClicked()))
-                            button.setFlaged(true);
-                        else
-                            button.setFlaged(false);
-                        gameInterface.refreshScreen();
-                    }
-                });
+                initializeFlagListener(i,j);
                 btnCounter++;
             }
         }
+    }
+
+    private void initializeFlagListener(int i, int j) {
+        buttons[i][j].setOnMouseClicked(e -> {
+            Btn button = (Btn) e.getSource();
+            if(e.getButton().equals(MouseButton.SECONDARY)) {
+                if(!(button.isFlaged() || button.isClicked()))
+                    button.setFlaged(true);
+                else
+                    button.setFlaged(false);
+                gameInterface.refreshScreen();
+            }
+        });
     }
 
     /**

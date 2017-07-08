@@ -19,7 +19,6 @@ public class FadeAnimation implements SweeperAnimation {
         fadeTransition.setFromValue(from);
         fadeTransition.setToValue(to);
         fadeTransition.setDuration(duration);
-
     }
 
     public FadeTransition getFadeTransition() {

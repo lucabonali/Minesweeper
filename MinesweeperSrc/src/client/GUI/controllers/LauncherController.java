@@ -37,7 +37,7 @@ import java.util.ResourceBundle;
  * @author Luca
  */
 public class LauncherController implements Initializable {
-    static final int EASY_BOMBS = 3;
+    static final int EASY_BOMBS = 12;
     static final int MEDIUM_BOMBS = 30;
     static final int HARD_BOMBS = 70;
     static final int EASY_LINES_COLUMNS = 9;
@@ -103,12 +103,16 @@ public class LauncherController implements Initializable {
     public void startMultiGame(ActionEvent actionEvent) {
         if(isLogged) {
                 try {
-                    if(medium.isSelected())
-                        ClientSweeper.getInstance().createGame(GameMod.EASY);
-                    if(hard.isSelected())
+                    if(medium.isSelected()) {
+                        ClientSweeper.getInstance().createGame(GameMod.MEDIUM);
+                        System.out.println("Creo una partita media:");
+                    }
+                    else if(hard.isSelected())
                         ClientSweeper.getInstance().createGame(GameMod.HARD);
-                    else
+                    else  {
                         ClientSweeper.getInstance().createGame(GameMod.EASY);
+                        System.out.println("Creo una partita easy:");
+                    }
                 } catch (RemoteException e) {
                     e.printStackTrace();
                     System.out.println("ERROR CREATING MULTIPLAYER GAME");

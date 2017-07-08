@@ -8,7 +8,7 @@ import javafx.util.Duration;
 /**
  * @author Luca
  */
-public class TranslateAnimation {
+public class TranslateAnimation implements SweeperAnimation {
     private Node node;
 
     private TranslateTransition translateTransition;

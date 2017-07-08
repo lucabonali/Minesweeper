@@ -9,11 +9,9 @@ public class Btn extends Button {
     private int idButton;
     private int nearBombs = 0;
     private Grid grid;
-
     private boolean clicked;
     private boolean flaged;
     private boolean bomb;
-
     private boolean refreshed;
 
     public int getIdButton() {

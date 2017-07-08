@@ -24,7 +24,6 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
     private String userName, password;
     private List<String> scoreNames;
     private List<Integer> scoreTimes;
-
     private boolean logged = false;
 
     //Metodi richiamati dal client verso il serverSweeper
@@ -36,7 +35,8 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
      */
     public ClientSweeper(String userName, String password) throws RemoteException {
         super();
-
+        this.userName = userName;
+        this.password = password;
         try {
             registry = LocateRegistry.getRegistry(1099);
             serverSweeper = (ServerSweeperInterface) registry.lookup(SERVER);
@@ -54,6 +54,7 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
     public void login(String userName, String password){
         try {
             playerSweeper = (PlayerSweeperInterface) serverSweeper.login(userName,password,this);
+            logged = true;
             System.out.println("Ottengo Player Sweeper");
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -61,12 +62,8 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
     }
 
     public boolean createGame(GameMod gameMod) throws RemoteException {
-        System.out.println("Creo la partita");
-        if(playerSweeper.createGame(gameMod,this))
-            logged = true;
-        else{
-            System.out.println("Errore di login");
-        }
+        System.out.println("Creo la partita " + gameMod.toString());
+        playerSweeper.createGame(gameMod,this);
         return false;
     }
 
@@ -136,13 +133,14 @@ public class ClientSweeper extends UnicastRemoteObject implements ClientSweeperI
 
     @Override
     public void getLose() throws RemoteException {
+        System.out.println("Prima di showOther");
         multiplayerGui.showOtherLose();
-        System.out.println("Laltro ha abbandonato");
+        System.out.println("L'altro ha abbandonato");
     }
 
     @Override
     public void getSurrended() throws RemoteException {
-        multiplayerGui.showSurrender();
+        multiplayerGui.showOtherLose();
     }
 
     @Override
